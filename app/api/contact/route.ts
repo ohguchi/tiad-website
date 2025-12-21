@@ -67,7 +67,7 @@ ${message}
     const { data, error } = await resend.emails.send({
       from: FROM_EMAIL,
       to: TO_EMAIL,
-      replyTo: email, // 返信先を送信者のメールアドレスに設定
+      reply_to: email, // 返信先を送信者のメールアドレスに設定
       subject: `【TiAD.LLC】お問い合わせ: ${subjectJa} - ${name}様`,
       text: emailBody,
       html: `
