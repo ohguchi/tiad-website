@@ -51,6 +51,11 @@ export default function Footer() {
                   お問い合わせ
                 </Link>
               </li>
+              <li>
+                <Link href="/privacy-policy" className="text-light-300 hover:text-primary-400 transition-colors">
+                  プライバシーポリシー
+                </Link>
+              </li>
             </ul>
           </div>
 
