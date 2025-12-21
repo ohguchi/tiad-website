@@ -3,7 +3,8 @@
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
 import SectionDivider from '@/components/SectionDivider'
-import { IconComputer, IconClock, IconRocket, IconInfinity } from '@/components/Icons'
+import HoverRevealCard from '@/components/HoverRevealCard'
+import { IconInfinity } from '@/components/Icons'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
@@ -156,53 +157,45 @@ export default function AboutPage() {
 
           <SectionDivider variant="wave" color="#fafafa" />
 
-          {/* ビジョンセクション */}
-          <ParallaxSection speed={0.1}>
-            <section className="py-16">
-              <ScrollReveal>
-                <h2 className="text-3xl md:text-4xl font-bold mb-10 text-light-800">
-                  私たちの<span className="text-primary-500">ビジョン</span>
-                </h2>
-              </ScrollReveal>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {[
-                  {
-                    icon: <IconComputer size={32} className="text-blue-500" />,
-                    title: 'ICTを最大限に活用',
-                    desc: '最新のICT技術を活用し、業務効率化と生産性向上を実現します。',
-                    gradient: 'from-blue-500 to-cyan-500'
-                  },
-                  {
-                    icon: <IconClock size={32} className="text-emerald-500" />,
-                    title: '働き方の最適化',
-                    desc: '単なる労働時間の削減ではなく、真の働き方改革を実現します。',
-                    gradient: 'from-emerald-500 to-teal-500'
-                  },
-                  {
-                    icon: <IconRocket size={32} className="text-violet-500" />,
-                    title: '持続可能な成長',
-                    desc: '人とテクノロジーの融合により、持続可能な成長を支援します。',
-                    gradient: 'from-violet-500 to-purple-500'
-                  },
-                ].map((item, index) => (
-                  <ScrollReveal key={index} delay={index * 0.15} direction="up">
-                    <motion.div
-                      whileHover={{ y: -8 }}
-                      className="bg-white rounded-2xl p-8 border border-light-200 hover:border-primary-300 transition-all duration-300 hover:shadow-lg h-full"
-                    >
-                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-5 text-white`}>
-                        {item.icon}
-                      </div>
-                      <h3 className="text-xl font-bold text-light-800 mb-3">{item.title}</h3>
-                      <p className="text-light-500 leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </motion.div>
-                  </ScrollReveal>
-                ))}
+          {/* ビジョンセクション - ホバーエフェクト */}
+          <section className="py-16 bg-light-50">
+            <ScrollReveal>
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-8">
+                <div>
+                  <h2 className="text-4xl md:text-5xl font-bold text-light-800 mb-2">
+                    VISION
+                  </h2>
+                  <p className="text-primary-500 text-sm font-medium">私たちのビジョン</p>
+                </div>
+                <p className="text-light-500 max-w-lg text-base leading-relaxed">
+                  ICT技術を活用し、人とテクノロジーの融合による持続可能な成長を支援します
+                </p>
               </div>
-            </section>
-          </ParallaxSection>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2}>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-light-200">
+                <HoverRevealCard
+                  title="ICTを最大限に活用"
+                  subtitle="業務効率化と生産性向上"
+                  image="/images/vision-ict.png"
+                  href="/services"
+                />
+                <HoverRevealCard
+                  title="働き方の最適化"
+                  subtitle="真の働き方改革を実現"
+                  image="/images/vision-work.png"
+                  href="/services"
+                />
+                <HoverRevealCard
+                  title="持続可能な成長"
+                  subtitle="人とテクノロジーの融合"
+                  image="/images/vision-growth.png"
+                  href="/services"
+                />
+              </div>
+            </ScrollReveal>
+          </section>
         </div>
       </div>
     </div>
