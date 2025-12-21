@@ -1,3 +1,5 @@
+'use client'
+
 import Hero from '@/components/Hero'
 import NewsSlider from '@/components/NewsSlider'
 import ServiceCard from '@/components/ServiceCard'
