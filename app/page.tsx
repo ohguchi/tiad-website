@@ -7,30 +7,13 @@ import ParallaxSection from '@/components/ParallaxSection'
 import BusinessPillars from '@/components/BusinessPillars'
 import CounterSection from '@/components/CounterSection'
 import SectionDivider from '@/components/SectionDivider'
-import { IconLightbulb, IconClock, IconComputer, IconArrowRight } from '@/components/Icons'
+import HoverRevealCard from '@/components/HoverRevealCard'
+import { IconArrowRight } from '@/components/Icons'
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
 export default function Home() {
-  const services = [
-    {
-      title: 'AI・IoT・RPA',
-      description: '新しい労働力となりうるICT技術を用いて、労働そのものの削減と業務の最適化を提案します。',
-      icon: <IconLightbulb size={40} />,
-    },
-    {
-      title: '働き方改革',
-      description: '労働時間の削減だけでなく、真の働き方改革を実現するためのソリューションを提供します。',
-      icon: <IconClock size={40} />,
-    },
-    {
-      title: 'ICT活用',
-      description: 'ICTを最大限に活用し、働き方の最適化を提案。人の持つ可能性を広げる技術を提供します。',
-      icon: <IconComputer size={40} />,
-    },
-  ]
-
   const messageRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress: messageScroll } = useScroll({
     target: messageRef,
@@ -205,36 +188,46 @@ export default function Home() {
       {/* カーブ区切り（反転） */}
       <SectionDivider variant="curve" color="#ffffff" flip={true} />
 
-      {/* アプローチセクション */}
+      {/* アプローチセクション - ホバーで画像が現れるカード */}
       <section className="relative py-24 bg-white overflow-hidden">
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <ScrollReveal>
-            <div className="text-center mb-16">
-              <p className="text-primary-500 text-sm tracking-widest mb-4 font-medium">APPROACH</p>
-              <h2 className="text-3xl md:text-5xl font-bold text-light-800 mb-6">
-                私たちのアプローチ
-              </h2>
-              <p className="text-lg text-light-500">
-                ICT技術を活用した働き方改革のソリューション
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-8">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-light-800 mb-2">
+                  APPROACH
+                </h2>
+                <p className="text-primary-500 text-sm font-medium">私たちのアプローチ</p>
+              </div>
+              <p className="text-light-500 max-w-lg text-base leading-relaxed">
+                ICT技術を活用した働き方改革のソリューションを提供します
               </p>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {services.map((service, index) => (
-              <ScrollReveal key={index} delay={index * 0.15} direction="up">
-                <motion.div
-                  whileHover={{ y: -10 }}
-                  className="bg-white rounded-2xl p-8 border border-light-200 hover:border-primary-300 transition-all duration-300 hover:shadow-xl text-center h-full"
-                >
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-50 text-primary-500 mb-6">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-light-800 mb-4">{service.title}</h3>
-                  <p className="text-light-500 leading-relaxed">{service.description}</p>
-                </motion.div>
-              </ScrollReveal>
-            ))}
-          </div>
+
+          {/* ホバーで画像が現れるカード */}
+          <ScrollReveal delay={0.2}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-light-200">
+              <HoverRevealCard
+                title="AI・IoT・RPA"
+                subtitle="新時代のテクノロジー活用"
+                image="/images/approach-ai.png"
+                href="/services"
+              />
+              <HoverRevealCard
+                title="働き方改革"
+                subtitle="真の生産性向上へ"
+                image="/images/approach-work.png"
+                href="/services"
+              />
+              <HoverRevealCard
+                title="ICT活用"
+                subtitle="デジタルトランスフォーメーション"
+                image="/images/approach-ict.png"
+                href="/services"
+              />
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
