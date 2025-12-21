@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-// Resendの初期化（環境変数からAPIキーを取得）
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 // 送信先メールアドレス（環境変数から取得、デフォルト値あり）
 const TO_EMAIL = process.env.CONTACT_EMAIL || 'info@tiad.ai'
 const FROM_EMAIL = process.env.FROM_EMAIL || 'noreply@tiad.ai'
@@ -62,6 +59,19 @@ ${message}
 
 このメールは、TiAD.LLCウェブサイトのお問い合わせフォームから送信されました。
 `
+
+    // APIキーのチェック
+    const apiKey = process.env.RESEND_API_KEY
+    if (!apiKey) {
+      console.error('RESEND_API_KEY is not set')
+      return NextResponse.json(
+        { error: 'メール送信の設定が完了していません' },
+        { status: 500 }
+      )
+    }
+
+    // Resendの初期化（関数内で実行してビルド時のエラーを回避）
+    const resend = new Resend(apiKey)
 
     // Resendでメール送信
     const { data, error } = await resend.emails.send({
