@@ -21,10 +21,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja" className="dark">
+    <html lang="ja" className="dark scroll-smooth">
       <body className={`${notoSansJP.variable} font-sans antialiased`}>
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>
