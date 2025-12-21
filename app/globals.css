@@ -8,13 +8,8 @@
     --foreground: 222.2 84% 4.9%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-  }
-
   body {
-    @apply bg-dark-900 text-gray-100;
+    @apply bg-white text-light-800;
   }
 }
 
@@ -29,20 +24,41 @@ html {
   scroll-behavior: smooth;
 }
 
-/* カスタムスクロールバー */
+/* カスタムスクロールバー - ライトテーマ */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-dark-800;
+  @apply bg-light-100;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-dark-600 rounded-full;
+  @apply bg-light-300 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-dark-500;
+  @apply bg-light-400;
 }
 
+/* 温かみのあるグラデーション */
+.warm-gradient {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 50%, #fff7ed 100%);
+}
+
+.warm-gradient-subtle {
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+}
+
+/* セクション背景 */
+.section-light {
+  @apply bg-white;
+}
+
+.section-cream {
+  @apply bg-gradient-to-b from-orange-50/50 to-white;
+}
+
+.section-gray {
+  @apply bg-light-50;
+}

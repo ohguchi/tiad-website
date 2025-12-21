@@ -22,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja" className="dark scroll-smooth">
-      <body className={`${notoSansJP.variable} font-sans antialiased`}>
+    <html lang="ja" className="scroll-smooth">
+      <body className={`${notoSansJP.variable} font-sans antialiased bg-white text-light-800`}>
         <AnimationWrapper>
           <Header />
           <main className="min-h-screen overflow-x-hidden">{children}</main>

@@ -40,28 +40,20 @@ export default function OpeningAnimation({ onComplete }: OpeningAnimationProps) 
                 initial={{ opacity: 1 }}
                 exit={{ y: '-100%' }}
                 transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-                className="fixed inset-0 z-[9999] bg-dark-900 flex items-center justify-center overflow-hidden"
+                className="fixed inset-0 z-[9999] bg-white flex items-center justify-center overflow-hidden"
             >
-                {/* 背景パターン */}
-                <div className="absolute inset-0 opacity-10">
-                    <div
-                        className="w-full h-full"
-                        style={{
-                            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(14, 165, 233, 0.3) 1px, transparent 0)`,
-                            backgroundSize: '40px 40px',
-                        }}
-                    />
-                </div>
+                {/* 背景グラデーション */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-secondary-50" />
 
-                {/* グローエフェクト */}
+                {/* 装飾円 */}
                 <motion.div
                     className="absolute w-[600px] h-[600px] rounded-full"
                     style={{
-                        background: 'radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%)',
+                        background: 'radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%)',
                     }}
                     animate={{
                         scale: [1, 1.2, 1],
-                        opacity: [0.5, 0.8, 0.5],
+                        opacity: [0.3, 0.6, 0.3],
                     }}
                     transition={{
                         duration: 3,
@@ -82,7 +74,7 @@ export default function OpeningAnimation({ onComplete }: OpeningAnimationProps) 
                                 transition={{ duration: 0.5 }}
                                 className="flex flex-col items-center"
                             >
-                                <div className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
+                                <div className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">
                                     {textLine1.split('').map((char, index) => (
                                         <motion.span
                                             key={index}
@@ -93,7 +85,7 @@ export default function OpeningAnimation({ onComplete }: OpeningAnimationProps) 
                                                 duration: 0.4,
                                                 ease: 'easeOut',
                                             }}
-                                            className="inline-block bg-gradient-to-r from-white via-primary-300 to-white bg-clip-text text-transparent"
+                                            className="inline-block text-light-800"
                                         >
                                             {char}
                                         </motion.span>
@@ -113,12 +105,12 @@ export default function OpeningAnimation({ onComplete }: OpeningAnimationProps) 
                                 className="flex flex-col items-center"
                             >
                                 <motion.div
-                                    className="text-8xl md:text-[12rem] lg:text-[16rem] font-bold text-primary-400"
+                                    className="text-8xl md:text-[10rem] lg:text-[14rem] font-bold text-primary-500"
                                     animate={{
-                                        textShadow: [
-                                            '0 0 20px rgba(14, 165, 233, 0.5)',
-                                            '0 0 60px rgba(14, 165, 233, 0.8)',
-                                            '0 0 20px rgba(14, 165, 233, 0.5)',
+                                        filter: [
+                                            'drop-shadow(0 0 20px rgba(249, 115, 22, 0.3))',
+                                            'drop-shadow(0 0 40px rgba(249, 115, 22, 0.5))',
+                                            'drop-shadow(0 0 20px rgba(249, 115, 22, 0.3))',
                                         ],
                                     }}
                                     transition={{
@@ -133,7 +125,7 @@ export default function OpeningAnimation({ onComplete }: OpeningAnimationProps) 
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.3 }}
-                                    className="text-xl md:text-2xl text-gray-400 mt-4"
+                                    className="text-lg md:text-xl text-light-500 mt-4"
                                 >
                                     無限の可能性へ
                                 </motion.p>
@@ -152,9 +144,9 @@ export default function OpeningAnimation({ onComplete }: OpeningAnimationProps) 
                                 <motion.div
                                     animate={{
                                         filter: [
-                                            'drop-shadow(0 0 10px rgba(14, 165, 233, 0.3))',
-                                            'drop-shadow(0 0 30px rgba(14, 165, 233, 0.6))',
-                                            'drop-shadow(0 0 10px rgba(14, 165, 233, 0.3))',
+                                            'drop-shadow(0 0 10px rgba(249, 115, 22, 0.2))',
+                                            'drop-shadow(0 0 30px rgba(249, 115, 22, 0.4))',
+                                            'drop-shadow(0 0 10px rgba(249, 115, 22, 0.2))',
                                         ],
                                     }}
                                     transition={{
@@ -176,7 +168,7 @@ export default function OpeningAnimation({ onComplete }: OpeningAnimationProps) 
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.4 }}
-                                    className="text-lg md:text-xl text-gray-400 mt-6"
+                                    className="text-lg md:text-xl text-light-500 mt-6"
                                 >
                                     Tomorrow is Another Day
                                 </motion.p>
@@ -186,9 +178,9 @@ export default function OpeningAnimation({ onComplete }: OpeningAnimationProps) 
                 </div>
 
                 {/* 下部のプログレスバー */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-dark-700">
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-light-200">
                     <motion.div
-                        className="h-full bg-gradient-to-r from-primary-500 to-primary-400"
+                        className="h-full bg-gradient-to-r from-primary-400 to-primary-500"
                         initial={{ width: '0%' }}
                         animate={{ width: '100%' }}
                         transition={{ duration: 4.5, ease: 'linear' }}

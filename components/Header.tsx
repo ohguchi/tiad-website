@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
@@ -38,17 +39,20 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-dark-900/95 backdrop-blur-md shadow-2xl border-b border-dark-700' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-light-200' : 'bg-white/80 backdrop-blur-sm'
+        }`}
     >
       <nav className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* ロゴ */}
           <Link href="/" className="flex items-center space-x-2 z-50">
-            <div className="text-2xl font-bold text-white">
-              TiAD<span className="text-primary-400">.LLC</span>
-            </div>
+            <Image
+              src="/images/logo.png"
+              alt="TiAD Logo"
+              width={120}
+              height={38}
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* デスクトップナビゲーション */}
@@ -57,10 +61,9 @@ export default function Header() {
               <div key={item.href} className="relative group">
                 <Link
                   href={item.href}
-                  className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors duration-200 py-2"
+                  className="flex items-center space-x-1 text-light-600 hover:text-primary-500 transition-colors duration-200 py-2 font-medium"
                 >
                   <span>{item.name}</span>
-                  <span className="text-xs text-gray-500">-{item.en}-</span>
                   {item.submenu && (
                     <svg
                       className="w-4 h-4 ml-1"
@@ -78,16 +81,15 @@ export default function Header() {
                   )}
                 </Link>
                 {item.submenu && (
-                  <div className="absolute left-0 mt-2 w-48 bg-dark-800 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="absolute left-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-light-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     <div className="py-2">
                       {item.submenu.map((sub) => (
                         <Link
                           key={sub.href}
                           href={sub.href}
-                          className="block px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-dark-700 transition-colors"
+                          className="block px-4 py-3 text-sm text-light-600 hover:text-primary-500 hover:bg-primary-50 transition-colors"
                         >
                           {sub.name}
-                          <span className="text-xs text-gray-500 ml-2">-{sub.en}-</span>
                         </Link>
                       ))}
                     </div>
@@ -95,29 +97,33 @@ export default function Header() {
                 )}
               </div>
             ))}
+            {/* CTAボタン */}
+            <Link
+              href="/contact"
+              className="px-6 py-2.5 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-lg"
+            >
+              お問い合わせ
+            </Link>
           </div>
 
           {/* モバイルメニューボタン */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-white p-2 z-50"
+            className="lg:hidden text-light-700 p-2 z-50"
             aria-label="メニュー"
           >
             <div className="w-6 h-6 flex flex-col justify-center space-y-1.5">
               <span
-                className={`block h-0.5 w-6 bg-white transition-all duration-300 ${
-                  isOpen ? 'rotate-45 translate-y-2' : ''
-                }`}
+                className={`block h-0.5 w-6 bg-light-700 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''
+                  }`}
               />
               <span
-                className={`block h-0.5 w-6 bg-white transition-all duration-300 ${
-                  isOpen ? 'opacity-0' : ''
-                }`}
+                className={`block h-0.5 w-6 bg-light-700 transition-all duration-300 ${isOpen ? 'opacity-0' : ''
+                  }`}
               />
               <span
-                className={`block h-0.5 w-6 bg-white transition-all duration-300 ${
-                  isOpen ? '-rotate-45 -translate-y-2' : ''
-                }`}
+                className={`block h-0.5 w-6 bg-light-700 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''
+                  }`}
               />
             </div>
           </button>
@@ -131,7 +137,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-dark-900 border-t border-dark-700"
+            className="lg:hidden bg-white border-t border-light-200"
           >
             <div className="container mx-auto px-4 py-4 space-y-2">
               {navItems.map((item) => (
@@ -139,11 +145,11 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="block py-3 text-gray-300 hover:text-white transition-colors border-b border-dark-800"
+                    className="block py-3 text-light-700 hover:text-primary-500 transition-colors border-b border-light-100"
                   >
                     <div className="flex items-center justify-between">
-                      <span>{item.name}</span>
-                      <span className="text-xs text-gray-500">-{item.en}-</span>
+                      <span className="font-medium">{item.name}</span>
+                      <span className="text-xs text-light-400">{item.en}</span>
                     </div>
                   </Link>
                   {item.submenu && (
@@ -153,10 +159,9 @@ export default function Header() {
                           key={sub.href}
                           href={sub.href}
                           onClick={() => setIsOpen(false)}
-                          className="block py-2 text-sm text-gray-400 hover:text-white transition-colors"
+                          className="block py-2 text-sm text-light-500 hover:text-primary-500 transition-colors"
                         >
                           {sub.name}
-                          <span className="text-xs text-gray-600 ml-2">-{sub.en}-</span>
                         </Link>
                       ))}
                     </div>

@@ -48,12 +48,12 @@ function CounterItem({ end, suffix = '', prefix = '', label, duration = 2 }: Cou
             viewport={{ once: true }}
             className="text-center"
         >
-            <div className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2">
-                <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+            <div className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
+                <span className="text-primary-500">
                     {prefix}{count}{suffix}
                 </span>
             </div>
-            <p className="text-gray-400 text-lg">{label}</p>
+            <p className="text-light-500 text-sm md:text-base">{label}</p>
         </motion.div>
     )
 }

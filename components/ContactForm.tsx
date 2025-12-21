@@ -57,8 +57,8 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-            お名前 <span className="text-red-400">*</span>
+          <label htmlFor="name" className="block text-sm font-medium text-light-700 mb-2">
+            お名前 <span className="text-primary-500">*</span>
           </label>
           <input
             type="text"
@@ -67,13 +67,13 @@ export default function ContactForm() {
             required
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="w-full px-4 py-3 bg-light-50 border border-light-200 rounded-xl text-light-800 placeholder-light-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
             placeholder="山田 太郎"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-            メールアドレス <span className="text-red-400">*</span>
+          <label htmlFor="email" className="block text-sm font-medium text-light-700 mb-2">
+            メールアドレス <span className="text-primary-500">*</span>
           </label>
           <input
             type="email"
@@ -82,14 +82,14 @@ export default function ContactForm() {
             required
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            className="w-full px-4 py-3 bg-light-50 border border-light-200 rounded-xl text-light-800 placeholder-light-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
             placeholder="example@email.com"
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
+        <label htmlFor="company" className="block text-sm font-medium text-light-700 mb-2">
           会社名
         </label>
         <input
@@ -98,14 +98,14 @@ export default function ContactForm() {
           name="company"
           value={formData.company}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          className="w-full px-4 py-3 bg-light-50 border border-light-200 rounded-xl text-light-800 placeholder-light-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
           placeholder="株式会社○○"
         />
       </div>
 
       <div>
-        <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-          お問い合わせ種別 <span className="text-red-400">*</span>
+        <label htmlFor="subject" className="block text-sm font-medium text-light-700 mb-2">
+          お問い合わせ種別 <span className="text-primary-500">*</span>
         </label>
         <select
           id="subject"
@@ -113,7 +113,7 @@ export default function ContactForm() {
           required
           value={formData.subject}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          className="w-full px-4 py-3 bg-light-50 border border-light-200 rounded-xl text-light-800 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
         >
           <option value="">選択してください</option>
           <option value="service">サービスについて</option>
@@ -124,8 +124,8 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-          お問い合わせ内容 <span className="text-red-400">*</span>
+        <label htmlFor="message" className="block text-sm font-medium text-light-700 mb-2">
+          お問い合わせ内容 <span className="text-primary-500">*</span>
         </label>
         <textarea
           id="message"
@@ -134,7 +134,7 @@ export default function ContactForm() {
           rows={6}
           value={formData.message}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
+          className="w-full px-4 py-3 bg-light-50 border border-light-200 rounded-xl text-light-800 placeholder-light-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none transition-all"
           placeholder="お問い合わせ内容をご記入ください"
         />
       </div>
@@ -143,7 +143,7 @@ export default function ContactForm() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400"
+          className="p-4 bg-green-50 border border-green-200 rounded-xl text-green-700"
         >
           お問い合わせありがとうございます。内容を確認次第、ご連絡いたします。
         </motion.div>
@@ -153,7 +153,7 @@ export default function ContactForm() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400"
+          className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-700"
         >
           送信に失敗しました。しばらく時間をおいて再度お試しください。
         </motion.div>
@@ -163,7 +163,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full md:w-auto px-8 py-4 bg-primary-600 hover:bg-primary-700 disabled:bg-dark-700 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-colors shadow-lg"
+          className="w-full md:w-auto px-10 py-4 bg-primary-500 hover:bg-primary-600 disabled:bg-light-300 disabled:cursor-not-allowed text-white font-semibold rounded-full transition-all shadow-lg hover:shadow-xl"
         >
           {isSubmitting ? '送信中...' : '送信する'}
         </button>
@@ -171,4 +171,3 @@ export default function ContactForm() {
     </form>
   )
 }
-
