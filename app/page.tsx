@@ -6,6 +6,9 @@ import ServiceCard from '@/components/ServiceCard'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
 import VideoBackground from '@/components/VideoBackground'
+import BusinessPillars from '@/components/BusinessPillars'
+import CounterSection from '@/components/CounterSection'
+import AnimatedBackground from '@/components/AnimatedBackground'
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
@@ -87,16 +90,121 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 会社コンセプトセクション */}
+      <section className="relative py-32 bg-dark-900 overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at 1px 1px, rgba(14, 165, 233, 0.5) 1px, transparent 0)`,
+              backgroundSize: '50px 50px',
+            }}
+          />
+        </div>
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <ParallaxSection speed={0.2}>
+            <div className="max-w-4xl mx-auto">
+              <ScrollReveal>
+                <div className="text-center mb-12">
+                  <p className="text-primary-400 text-lg tracking-widest mb-4">WHY TiAD</p>
+                  <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
+                    私たちの<span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">ミッション</span>
+                  </h2>
+                </div>
+              </ScrollReveal>
+              <ScrollReveal delay={0.2}>
+                <div className="bg-gradient-to-br from-dark-800/80 to-dark-700/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-dark-600">
+                  <p className="text-xl md:text-2xl text-gray-200 leading-relaxed mb-6">
+                    人とICTの掛け合わせにより、<br className="hidden md:block" />
+                    <span className="text-primary-400 font-semibold">ビジネスの生産性を革命的に向上させる</span>
+                    DX活用を提案します。
+                  </p>
+                  <p className="text-lg text-gray-300 leading-relaxed">
+                    私たちは単なるシステム導入ではなく、お客様のビジネスを根本から変革するパートナーとして、
+                    最新のICT技術を活用した真の働き方改革を実現します。
+                  </p>
+                </div>
+              </ScrollReveal>
+            </div>
+          </ParallaxSection>
+        </div>
+      </section>
+
+      {/* 3本の事業柱 */}
+      <section className="py-32 bg-dark-800">
+        <div className="container mx-auto px-4 lg:px-8">
+          <ParallaxSection speed={0.15}>
+            <ScrollReveal>
+              <div className="text-center mb-16">
+                <p className="text-primary-400 text-lg tracking-widest mb-4">BUSINESS</p>
+                <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+                  3つの<span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">事業領域</span>
+                </h2>
+                <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                  インフラからアプリケーションまで<br />
+                  ICTに関するあらゆるニーズにお応えします
+                </p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <BusinessPillars />
+            </ScrollReveal>
+            <ScrollReveal delay={0.4}>
+              <div className="text-center mt-12">
+                <Link
+                  href="/services"
+                  className="inline-flex items-center text-primary-400 hover:text-primary-300 transition-colors text-lg font-semibold"
+                >
+                  すべてのサービスを見る
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </ScrollReveal>
+          </ParallaxSection>
+        </div>
+      </section>
+
+      {/* 実績統計セクション */}
+      <section className="relative py-32 overflow-hidden">
+        <VideoBackground
+          imageSrc="/images/hero-pattern.svg"
+          overlay={true}
+          className="absolute inset-0"
+        >
+          <AnimatedBackground />
+        </VideoBackground>
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <ParallaxSection speed={0.2}>
+            <ScrollReveal>
+              <div className="text-center mb-16">
+                <p className="text-primary-400 text-lg tracking-widest mb-4">ACHIEVEMENTS</p>
+                <h2 className="text-4xl md:text-5xl font-bold text-white">
+                  数字で見る<span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">TiAD</span>
+                </h2>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <CounterSection />
+            </ScrollReveal>
+          </ParallaxSection>
+        </div>
+      </section>
+
       {/* ニュースセクション - スクロールアニメーション */}
       <section className="relative py-32 bg-dark-800">
         <ParallaxSection speed={0.3}>
           <div className="container mx-auto px-4 lg:px-8">
             <ScrollReveal>
-              <h2 className="text-5xl md:text-7xl font-bold text-center mb-16">
-                <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
-                  NEWS
-                </span>
-              </h2>
+              <div className="text-center mb-16">
+                <p className="text-primary-400 text-lg tracking-widest mb-4">NEWS</p>
+                <h2 className="text-5xl md:text-7xl font-bold">
+                  <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+                    お知らせ
+                  </span>
+                </h2>
+              </div>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <NewsSlider />
@@ -118,9 +226,10 @@ export default function Home() {
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <ScrollReveal>
             <div className="text-center mb-20">
+              <p className="text-primary-400 text-lg tracking-widest mb-4">APPROACH</p>
               <h2 className="text-5xl md:text-7xl font-bold mb-6">
                 <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                  私たちのサービス
+                  私たちのアプローチ
                 </span>
               </h2>
               <p className="text-xl md:text-2xl text-gray-400">
@@ -159,7 +268,7 @@ export default function Home() {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed">
-                働き方改革やICT活用について、お気軽にご相談ください
+                DX推進や業務改善について、<br className="md:hidden" />お気軽にご相談ください
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.4}>
@@ -178,4 +287,3 @@ export default function Home() {
     </div>
   )
 }
-
