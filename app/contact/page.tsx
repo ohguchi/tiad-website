@@ -49,34 +49,34 @@ export default function ContactPage() {
                 <ContactForm />
               </div>
             </ScrollReveal>
-          </ParallaxSection>
 
-          {/* 連絡先情報 */}
-          <ParallaxSection speed={0.3}>
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-              <ScrollReveal delay={0.2} direction="up">
-                <div className="bg-gradient-to-br from-dark-800 to-dark-700 rounded-2xl p-8 border border-dark-600 hover:border-primary-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/20">
-                  <h3 className="text-2xl font-bold text-white mb-4">営業時間</h3>
-                  <p className="text-gray-300 text-lg">
-                    平日 10:00 - 18:00
-                    <br />
-                    （土日祝日を除く）
-                  </p>
-                </div>
-              </ScrollReveal>
-              <ScrollReveal delay={0.4} direction="up">
-                <div className="bg-gradient-to-br from-dark-800 to-dark-700 rounded-2xl p-8 border border-dark-600 hover:border-primary-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/20">
-                  <h3 className="text-2xl font-bold text-white mb-4">お問い合わせ</h3>
-                  <p className="text-gray-300 text-lg">
-                    メールフォームより
-                    <br />
-                    お気軽にお問い合わせください
-                  </p>
-                </div>
-              </ScrollReveal>
-            </div>
-          </ParallaxSection>
-        </div>
+            {/* 連絡先情報 */}
+            <ScrollReveal delay={0.2}>
+              <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <ScrollReveal delay={0.3} direction="up">
+                  <div className="bg-gradient-to-br from-dark-800 to-dark-700 rounded-2xl p-8 border border-dark-600 hover:border-primary-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/20">
+                    <h3 className="text-2xl font-bold text-white mb-4">営業時間</h3>
+                    <p className="text-gray-300 text-lg">
+                      平日 10:00 - 18:00
+                      <br />
+                      （土日祝日を除く）
+                    </p>
+                  </div>
+                </ScrollReveal>
+                <ScrollReveal delay={0.4} direction="up">
+                  <div className="bg-gradient-to-br from-dark-800 to-dark-700 rounded-2xl p-8 border border-dark-600 hover:border-primary-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/20">
+                    <h3 className="text-2xl font-bold text-white mb-4">お問い合わせ</h3>
+                    <p className="text-gray-300 text-lg">
+                      メールフォームより
+                      <br />
+                      お気軽にお問い合わせください
+                    </p>
+                  </div>
+                </ScrollReveal>
+              </div>
+            </ScrollReveal>
+          </div>
+        </ParallaxSection>
       </div>
     </div>
   )
