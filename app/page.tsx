@@ -112,37 +112,49 @@ export default function Home() {
       {/* 斜め区切り（反転） */}
       <SectionDivider variant="diagonal" color="#fafafa" flip={true} />
 
-      {/* 3本の事業柱 */}
+      {/* 3本の事業柱 - 参考サイトSERVICE風 */}
       <section className="py-24 bg-light-50">
         <div className="container mx-auto px-4 lg:px-8">
-          <ParallaxSection speed={0.1}>
-            <ScrollReveal>
-              <div className="text-center mb-16">
-                <p className="text-primary-500 text-sm tracking-widest mb-4 font-medium">BUSINESS</p>
-                <h2 className="text-3xl md:text-5xl font-bold text-light-800 mb-6">
-                  3つの<span className="text-primary-500">事業領域</span>
+          {/* ヘッダー部分 - 左右分割レイアウト */}
+          <ScrollReveal>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-8">
+              <div>
+                <h2 className="text-4xl md:text-6xl font-bold text-light-800 mb-2">
+                  SERVICE
                 </h2>
-                <p className="text-lg text-light-500 max-w-2xl mx-auto">
-                  インフラからアプリケーションまで<br />
-                  ICTに関するあらゆるニーズにお応えします
-                </p>
+                <p className="text-primary-500 text-sm font-medium">私たちが取り組む事業</p>
               </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <BusinessPillars />
-            </ScrollReveal>
-            <ScrollReveal delay={0.4}>
-              <div className="text-center mt-12">
+              <p className="text-light-500 max-w-lg text-base leading-relaxed">
+                ICTを活用したビジネスの生産性向上を実現するための取り組みです。
+                お客様と協力し、新たなビジネスシステムを作り上げていきます。
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* 事業カード */}
+          <ScrollReveal delay={0.2}>
+            <BusinessPillars />
+          </ScrollReveal>
+
+          {/* CTA部分 */}
+          <ScrollReveal delay={0.4}>
+            <div className="flex justify-end mt-12">
+              <motion.div whileHover={{ x: 5 }}>
                 <Link
                   href="/services"
-                  className="inline-flex items-center text-primary-500 hover:text-primary-600 transition-colors text-lg font-medium"
+                  className="inline-flex items-center text-primary-500 hover:text-primary-600 transition-colors text-lg font-medium group"
                 >
-                  すべてのサービスを見る
-                  <IconArrowRight size={20} className="ml-2" />
+                  私たちの事業内容について
+                  <motion.div
+                    className="ml-3 w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center group-hover:bg-primary-600 transition-colors"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <IconArrowRight size={18} className="text-white" />
+                  </motion.div>
                 </Link>
-              </div>
-            </ScrollReveal>
-          </ParallaxSection>
+              </motion.div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
