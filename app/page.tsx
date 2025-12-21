@@ -2,13 +2,13 @@
 
 import Hero from '@/components/Hero'
 import NewsSlider from '@/components/NewsSlider'
-import ServiceCard from '@/components/ServiceCard'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
 import BusinessPillars from '@/components/BusinessPillars'
 import CounterSection from '@/components/CounterSection'
+import SectionDivider from '@/components/SectionDivider'
+import { IconLightbulb, IconClock, IconComputer, IconArrowRight } from '@/components/Icons'
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
@@ -17,29 +17,17 @@ export default function Home() {
     {
       title: 'AI・IoT・RPA',
       description: '新しい労働力となりうるICT技術を用いて、労働そのものの削減と業務の最適化を提案します。',
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-        </svg>
-      ),
+      icon: <IconLightbulb size={40} />,
     },
     {
       title: '働き方改革',
       description: '労働時間の削減だけでなく、真の働き方改革を実現するためのソリューションを提供します。',
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
+      icon: <IconClock size={40} />,
     },
     {
       title: 'ICT活用',
       description: 'ICTを最大限に活用し、働き方の最適化を提案。人の持つ可能性を広げる技術を提供します。',
-      icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
+      icon: <IconComputer size={40} />,
     },
   ]
 
@@ -54,12 +42,14 @@ export default function Home() {
     <div className="pt-0">
       <Hero />
 
+      {/* 斜め区切り */}
+      <SectionDivider variant="diagonal" color="#f5f5f5" />
+
       {/* メッセージセクション */}
       <section
         ref={messageRef}
         className="relative py-24 md:py-32 bg-light-50 overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-white to-light-50" />
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <motion.div
             style={{ y: messageY }}
@@ -84,6 +74,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* カーブ区切り */}
+      <SectionDivider variant="curve" color="#ffffff" />
 
       {/* 会社コンセプトセクション */}
       <section className="relative py-24 bg-white overflow-hidden">
@@ -116,6 +109,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 斜め区切り（反転） */}
+      <SectionDivider variant="diagonal" color="#fafafa" flip={true} />
+
       {/* 3本の事業柱 */}
       <section className="py-24 bg-light-50">
         <div className="container mx-auto px-4 lg:px-8">
@@ -142,15 +138,16 @@ export default function Home() {
                   className="inline-flex items-center text-primary-500 hover:text-primary-600 transition-colors text-lg font-medium"
                 >
                   すべてのサービスを見る
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  <IconArrowRight size={20} className="ml-2" />
                 </Link>
               </div>
             </ScrollReveal>
           </ParallaxSection>
         </div>
       </section>
+
+      {/* ウェーブ区切り */}
+      <SectionDivider variant="wave" color="#ffffff" />
 
       {/* 実績統計セクション */}
       <section className="relative py-24 bg-white overflow-hidden">
@@ -171,6 +168,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 斜め区切り */}
+      <SectionDivider variant="diagonal" color="#fafafa" />
+
       {/* ニュースセクション */}
       <section className="relative py-24 bg-light-50">
         <ParallaxSection speed={0.1}>
@@ -189,6 +189,9 @@ export default function Home() {
           </div>
         </ParallaxSection>
       </section>
+
+      {/* カーブ区切り（反転） */}
+      <SectionDivider variant="curve" color="#ffffff" flip={true} />
 
       {/* アプローチセクション */}
       <section className="relative py-24 bg-white overflow-hidden">
@@ -225,10 +228,18 @@ export default function Home() {
 
       {/* CTAセクション */}
       <section className="relative py-24 bg-gradient-to-br from-primary-500 to-primary-600 overflow-hidden">
-        {/* 装飾 */}
+        {/* 装飾パターン */}
         <div className="absolute inset-0 opacity-10">
-          <div
-            className="w-full h-full"
+          <motion.div
+            className="absolute inset-0"
+            animate={{
+              backgroundPosition: ['0% 0%', '100% 100%'],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              repeatType: 'reverse',
+            }}
             style={{
               backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
               backgroundSize: '40px 40px',

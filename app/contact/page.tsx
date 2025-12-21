@@ -3,6 +3,8 @@
 import ContactForm from '@/components/ContactForm'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
+import SectionDivider from '@/components/SectionDivider'
+import { IconClock, IconMail } from '@/components/Icons'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
@@ -24,6 +26,11 @@ export default function ContactPage() {
       >
         {/* 装飾 */}
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br from-primary-100/50 to-secondary-100/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <motion.div
+          className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-secondary-100/40 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 4, repeat: Infinity }}
+        />
 
         <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
@@ -48,7 +55,9 @@ export default function ContactPage() {
         </motion.div>
       </section>
 
-      <div className="container mx-auto px-4 lg:px-8 py-16">
+      <SectionDivider variant="curve" color="#ffffff" />
+
+      <div className="container mx-auto px-4 lg:px-8 py-16 bg-white">
         <ParallaxSection speed={0.05}>
           <div className="max-w-3xl mx-auto">
             <ScrollReveal>
@@ -73,10 +82,8 @@ export default function ContactPage() {
                   whileHover={{ y: -5 }}
                   className="bg-light-50 rounded-2xl p-8 border border-light-200 hover:border-primary-300 transition-all duration-300"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center mb-4">
+                    <IconClock size={24} className="text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-light-800 mb-2">営業時間</h3>
                   <p className="text-light-500">
@@ -87,12 +94,10 @@ export default function ContactPage() {
                 </motion.div>
                 <motion.div
                   whileHover={{ y: -5 }}
-                  className="bg-light-50 rounded-2xl p-8 border border-light-200 hover:border-primary-300 transition-all duration-300"
+                  className="bg-light-50 rounded-2xl p-8 border border-light-200 hover:border-secondary-300 transition-all duration-300"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-secondary-100 flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary-400 to-secondary-600 flex items-center justify-center mb-4">
+                    <IconMail size={24} className="text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-light-800 mb-2">お問い合わせ</h3>
                   <p className="text-light-500">

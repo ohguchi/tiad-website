@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { IconServer, IconBuilding, IconCode, IconArrowRight } from './Icons'
 
 interface PillarData {
     id: string
@@ -20,11 +21,7 @@ export default function BusinessPillars() {
             title: 'インフラ保守',
             subtitle: 'Infrastructure',
             description: 'データセンターのサーバー・VM・仮想ルーター保守',
-            icon: (
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-                </svg>
-            ),
+            icon: <IconServer size={28} className="text-white" />,
             gradient: 'from-blue-500 to-cyan-500',
             href: '/services#datacenter',
         },
@@ -33,11 +30,7 @@ export default function BusinessPillars() {
             title: '通信コンサル',
             subtitle: 'Fiber Optic',
             description: '集合住宅向け光ファイバー導入・資産価値向上提案',
-            icon: (
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-            ),
+            icon: <IconBuilding size={28} className="text-white" />,
             gradient: 'from-emerald-500 to-teal-500',
             href: '/services#apartment',
         },
@@ -46,11 +39,7 @@ export default function BusinessPillars() {
             title: 'アプリ開発',
             subtitle: 'Development',
             description: '中小企業向け業務改善アプリのフルスクラッチ開発',
-            icon: (
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-            ),
+            icon: <IconCode size={28} className="text-white" />,
             gradient: 'from-violet-500 to-purple-500',
             href: '/services#app-development',
         },
@@ -73,8 +62,8 @@ export default function BusinessPillars() {
                         >
                             {/* アイコン */}
                             <motion.div
-                                whileHover={{ rotate: 5 }}
-                                className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${pillar.gradient} text-white mb-6`}
+                                whileHover={{ rotate: 5, scale: 1.05 }}
+                                className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${pillar.gradient} mb-6 shadow-lg`}
                             >
                                 {pillar.icon}
                             </motion.div>
@@ -91,16 +80,7 @@ export default function BusinessPillars() {
                             {/* 矢印 */}
                             <div className="flex items-center text-primary-500 text-sm font-medium">
                                 詳しく見る
-                                <motion.svg
-                                    className="w-4 h-4 ml-1"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    animate={{ x: [0, 3, 0] }}
-                                    transition={{ duration: 1.5, repeat: Infinity }}
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </motion.svg>
+                                <IconArrowRight size={16} className="ml-1" />
                             </div>
 
                             {/* 下部ライン */}

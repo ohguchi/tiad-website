@@ -3,7 +3,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import VideoHero from './VideoHero'
+import { IconInfinity } from './Icons'
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null)
@@ -19,47 +20,9 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* 背景装飾 */}
-      <div className="absolute inset-0 z-0">
-        {/* グラデーション円 */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-primary-100/50 to-secondary-100/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-secondary-100/40 to-primary-100/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-
-        {/* パターン */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #000 1px, transparent 0)`,
-            backgroundSize: '40px 40px',
-          }}
-        />
-      </div>
-
-      {/* 動的なパーティクル効果 */}
-      <div className="absolute inset-0 z-[1]">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-primary-400/20 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [-20, 20, -20],
-              opacity: [0.2, 0.5, 0.2],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
+      <VideoHero className="absolute inset-0" overlayOpacity={0.1} />
 
       {/* パララックス効果のあるコンテンツ */}
       <motion.div
@@ -107,11 +70,21 @@ export default function Hero() {
             className="mb-12"
           >
             <motion.div
-              className="inline-block mb-8"
+              className="inline-flex items-center gap-4 mb-8 px-8 py-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-light-200 shadow-lg"
             >
-              <p className="text-2xl md:text-4xl font-bold px-8 py-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-light-200 shadow-lg text-light-700">
-                人財 × テクノロジー = <span className="text-primary-500">∞</span>
-              </p>
+              <span className="text-2xl md:text-4xl font-bold text-light-700">人財</span>
+              <span className="text-2xl md:text-3xl text-secondary-500">×</span>
+              <span className="text-2xl md:text-4xl font-bold text-light-700">テクノロジー</span>
+              <span className="text-2xl md:text-3xl text-light-400">=</span>
+              <motion.div
+                animate={{
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 5, -5, 0]
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <IconInfinity size={48} className="text-primary-500" />
+              </motion.div>
             </motion.div>
             <p className="text-lg md:text-xl text-light-500 max-w-3xl mx-auto leading-relaxed">
               人の持つ可能性を広げるために、人との結びつきを強くするために

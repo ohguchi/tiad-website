@@ -2,6 +2,8 @@
 
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
+import SectionDivider from '@/components/SectionDivider'
+import { IconComputer, IconClock, IconRocket, IconInfinity } from '@/components/Icons'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
@@ -47,7 +49,9 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      <div className="container mx-auto px-4 lg:px-8 py-16">
+      <SectionDivider variant="diagonal" color="#ffffff" />
+
+      <div className="container mx-auto px-4 lg:px-8 py-16 bg-white">
 
         {/* メインコンテンツ */}
         <div className="max-w-4xl mx-auto">
@@ -80,13 +84,33 @@ export default function AboutPage() {
           </ParallaxSection>
 
           {/* コンセプトセクション */}
-          <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 rounded-3xl p-10 md:p-14 mb-20 border border-light-200">
+          <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 rounded-3xl p-10 md:p-14 mb-20 border border-light-200 overflow-hidden">
+            {/* 動的装飾 */}
+            <motion.div
+              className="absolute -top-20 -right-20 w-40 h-40 bg-primary-200/30 rounded-full blur-2xl"
+              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 4, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute -bottom-20 -left-20 w-40 h-40 bg-secondary-200/30 rounded-full blur-2xl"
+              animate={{ scale: [1.2, 1, 1.2], opacity: [0.5, 0.3, 0.5] }}
+              transition={{ duration: 4, repeat: Infinity }}
+            />
+
             <ScrollReveal>
+              <div className="flex items-center justify-center mb-8">
+                <motion.div
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                >
+                  <IconInfinity size={80} className="text-primary-500" />
+                </motion.div>
+              </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-10 text-center text-light-800">
                 人財 × テクノロジー = <span className="text-primary-500">∞</span>
               </h2>
             </ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center relative z-10">
               <ScrollReveal delay={0.2}>
                 <motion.div whileHover={{ scale: 1.05 }}>
                   <div className="text-4xl md:text-5xl font-bold text-primary-500 mb-4">人財</div>
@@ -97,13 +121,13 @@ export default function AboutPage() {
               </ScrollReveal>
               <div className="flex items-center justify-center">
                 <ScrollReveal delay={0.3}>
-                  <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                    className="text-4xl md:text-5xl text-secondary-500"
+                  <motion.span
+                    className="text-4xl md:text-5xl text-secondary-500 font-bold"
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
                   >
                     ×
-                  </motion.div>
+                  </motion.span>
                 </ScrollReveal>
               </div>
               <ScrollReveal delay={0.4}>
@@ -117,7 +141,12 @@ export default function AboutPage() {
             </div>
             <div className="text-center mt-10">
               <ScrollReveal delay={0.5}>
-                <div className="text-6xl md:text-8xl font-bold text-primary-500 mb-4">= ∞</div>
+                <motion.div
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <div className="text-6xl md:text-8xl font-bold text-primary-500 mb-4">= ∞</div>
+                </motion.div>
                 <p className="text-light-600 text-lg">
                   私たちは新時代の技術を提供していきます
                 </p>
@@ -125,9 +154,11 @@ export default function AboutPage() {
             </div>
           </section>
 
+          <SectionDivider variant="wave" color="#fafafa" />
+
           {/* ビジョンセクション */}
           <ParallaxSection speed={0.1}>
-            <section>
+            <section className="py-16">
               <ScrollReveal>
                 <h2 className="text-3xl md:text-4xl font-bold mb-10 text-light-800">
                   私たちの<span className="text-primary-500">ビジョン</span>
@@ -135,16 +166,33 @@ export default function AboutPage() {
               </ScrollReveal>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
-                  { icon: '💻', title: 'ICTを最大限に活用', desc: '最新のICT技術を活用し、業務効率化と生産性向上を実現します。', gradient: 'from-blue-500 to-cyan-500' },
-                  { icon: '⏰', title: '働き方の最適化', desc: '単なる労働時間の削減ではなく、真の働き方改革を実現します。', gradient: 'from-emerald-500 to-teal-500' },
-                  { icon: '🚀', title: '持続可能な成長', desc: '人とテクノロジーの融合により、持続可能な成長を支援します。', gradient: 'from-violet-500 to-purple-500' },
+                  {
+                    icon: <IconComputer size={32} className="text-blue-500" />,
+                    title: 'ICTを最大限に活用',
+                    desc: '最新のICT技術を活用し、業務効率化と生産性向上を実現します。',
+                    gradient: 'from-blue-500 to-cyan-500'
+                  },
+                  {
+                    icon: <IconClock size={32} className="text-emerald-500" />,
+                    title: '働き方の最適化',
+                    desc: '単なる労働時間の削減ではなく、真の働き方改革を実現します。',
+                    gradient: 'from-emerald-500 to-teal-500'
+                  },
+                  {
+                    icon: <IconRocket size={32} className="text-violet-500" />,
+                    title: '持続可能な成長',
+                    desc: '人とテクノロジーの融合により、持続可能な成長を支援します。',
+                    gradient: 'from-violet-500 to-purple-500'
+                  },
                 ].map((item, index) => (
                   <ScrollReveal key={index} delay={index * 0.15} direction="up">
                     <motion.div
                       whileHover={{ y: -8 }}
                       className="bg-white rounded-2xl p-8 border border-light-200 hover:border-primary-300 transition-all duration-300 hover:shadow-lg h-full"
                     >
-                      <div className="text-4xl mb-4">{item.icon}</div>
+                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-5 text-white`}>
+                        {item.icon}
+                      </div>
                       <h3 className="text-xl font-bold text-light-800 mb-3">{item.title}</h3>
                       <p className="text-light-500 leading-relaxed">
                         {item.desc}

@@ -2,6 +2,9 @@
 
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
+import SectionDivider from '@/components/SectionDivider'
+import VideoHero from '@/components/VideoHero'
+import { IconServer, IconBuilding, IconCode, IconCheck, IconArrowRight } from '@/components/Icons'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
@@ -15,6 +18,7 @@ export default function ServicesPage() {
       subtitle: 'Infrastructure Maintenance',
       description: 'VMwareや仮想ルーターの保守・メンテナンスを中心に、データセンターの安定稼働を支えるインフラ保守サービスを提供します。24時間365日の監視体制で、お客様のビジネス継続をサポートします。',
       image: '/images/datacenter.png',
+      icon: <IconServer size={32} className="text-white" />,
       features: [
         { title: 'VMware環境保守', desc: '仮想マシンの構築・運用・最適化' },
         { title: '仮想ルーター管理', desc: 'ネットワーク機器の設定・監視' },
@@ -30,6 +34,7 @@ export default function ServicesPage() {
       subtitle: 'Fiber Optic Consulting',
       description: '集合住宅への光ファイバー設備導入により、物件の資産価値向上をご提案します。インターネット環境は今や入居者にとって必須のインフラ。入居率向上と差別化を実現します。',
       image: '/images/apartment.png',
+      icon: <IconBuilding size={32} className="text-white" />,
       features: [
         { title: '資産価値向上', desc: '高速インターネット完備物件として差別化' },
         { title: '入居者満足度UP', desc: '快適なネット環境で長期入居促進' },
@@ -45,6 +50,7 @@ export default function ServicesPage() {
       subtitle: 'Custom Application Development',
       description: '中小企業の業務に合わせたアプリケーションをフルスクラッチで作成します。既製品では対応できない独自の業務フローを、お客様専用のシステムで効率化。DX推進を強力にサポートします。',
       image: '/images/app-dev.png',
+      icon: <IconCode size={32} className="text-white" />,
       features: [
         { title: 'フルスクラッチ開発', desc: 'お客様専用のオーダーメイドシステム' },
         { title: '業務フロー最適化', desc: '現場の声を反映した使いやすさ' },
@@ -69,10 +75,9 @@ export default function ServicesPage() {
       {/* ヒーローセクション */}
       <section
         ref={heroRef}
-        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white"
+        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden"
       >
-        {/* 装飾 */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-primary-100/50 to-secondary-100/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <VideoHero className="absolute inset-0" overlayOpacity={0.2} />
 
         <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
@@ -100,6 +105,8 @@ export default function ServicesPage() {
         </motion.div>
       </section>
 
+      <SectionDivider variant="diagonal" color="#ffffff" />
+
       {/* 3本柱セクション */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
@@ -114,12 +121,15 @@ export default function ServicesPage() {
             </div>
           </ScrollReveal>
 
-          <div className="space-y-24">
+          <div className="space-y-12">
             {services.map((service, index) => (
               <ParallaxSection key={service.id} speed={0.05}>
                 <ScrollReveal delay={0.1}>
                   <div className="relative" id={service.id}>
-                    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch rounded-3xl overflow-hidden border border-light-200 hover:shadow-xl transition-all duration-500`}>
+                    <motion.div
+                      className={`grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch rounded-3xl overflow-hidden border border-light-200 hover:shadow-2xl transition-all duration-500`}
+                      whileHover={{ y: -5 }}
+                    >
                       {/* 画像セクション */}
                       <motion.div
                         className={`relative h-[280px] lg:h-auto min-h-[350px] ${index % 2 === 1 ? 'lg:order-2' : ''}`}
@@ -132,14 +142,15 @@ export default function ServicesPage() {
                           fill
                           className="object-cover"
                         />
-                        <div className={`absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent lg:bg-gradient-to-${index % 2 === 0 ? 'r' : 'l'} lg:from-white/50 lg:via-transparent lg:to-transparent`} />
+                        <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent lg:hidden" />
+                        <div className={`absolute inset-0 hidden lg:block bg-gradient-to-${index % 2 === 0 ? 'r' : 'l'} from-transparent via-white/30 to-white`} />
 
-                        {/* ナンバー */}
+                        {/* アイコン */}
                         <motion.div
                           className={`absolute ${index % 2 === 0 ? 'right-6' : 'left-6'} bottom-6 w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-lg`}
                           whileHover={{ rotate: 10, scale: 1.1 }}
                         >
-                          <span className="text-2xl font-bold text-white">0{index + 1}</span>
+                          {service.icon}
                         </motion.div>
                       </motion.div>
 
@@ -166,9 +177,7 @@ export default function ServicesPage() {
                                 className="flex items-start space-x-3"
                               >
                                 <div className={`flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br ${service.gradient} flex items-center justify-center mt-0.5`}>
-                                  <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                                  </svg>
+                                  <IconCheck size={12} className="text-white" />
                                 </div>
                                 <div>
                                   <h4 className="text-light-800 font-semibold text-sm">{feature.title}</h4>
@@ -179,7 +188,7 @@ export default function ServicesPage() {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </ScrollReveal>
               </ParallaxSection>
@@ -187,6 +196,8 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      <SectionDivider variant="wave" color="#fafafa" />
 
       {/* なぜTiADを選ぶのか */}
       <section className="py-24 bg-light-50 overflow-hidden">
@@ -224,15 +235,21 @@ export default function ServicesPage() {
 
       {/* CTAセクション */}
       <section className="relative py-24 bg-gradient-to-br from-primary-500 to-primary-600 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-              backgroundSize: '40px 40px',
-            }}
-          />
-        </div>
+        <motion.div
+          className="absolute inset-0 opacity-10"
+          animate={{
+            backgroundPosition: ['0% 0%', '100% 100%'],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            repeatType: 'reverse',
+          }}
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: '40px 40px',
+          }}
+        />
         <ParallaxSection speed={0.1}>
           <div className="container mx-auto px-4 lg:px-8 text-center relative z-10">
             <ScrollReveal>
@@ -259,6 +276,8 @@ export default function ServicesPage() {
         </ParallaxSection>
       </section>
 
+      <SectionDivider variant="curve" color="#ffffff" flip={true} />
+
       {/* 制作実績へのリンク */}
       <section className="py-12 bg-white">
         <ScrollReveal>
@@ -269,9 +288,7 @@ export default function ServicesPage() {
                 className="inline-flex items-center text-primary-500 hover:text-primary-600 transition-colors text-lg font-medium"
               >
                 制作実績を見る
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                <IconArrowRight size={20} className="ml-2" />
               </Link>
             </motion.div>
           </div>
