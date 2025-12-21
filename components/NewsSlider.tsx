@@ -52,60 +52,93 @@ export default function NewsSlider() {
   }
 
   return (
-    <div className="relative max-w-4xl mx-auto">
-      <div className="relative h-64 md:h-80 bg-dark-800 rounded-2xl overflow-hidden">
+    <div className="relative max-w-5xl mx-auto">
+      <div className="relative h-80 md:h-96 bg-gradient-to-br from-dark-800 via-dark-700 to-dark-800 rounded-3xl overflow-hidden border border-dark-600 shadow-2xl">
+        {/* 背景パターン */}
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230ea5e9' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          />
+        </div>
+
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.5 }}
-            className="absolute inset-0 flex items-center justify-center p-8"
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: -20 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            className="absolute inset-0 flex items-center justify-center p-8 md:p-12"
           >
-            <div className="text-center">
-              <div className="inline-block px-4 py-2 bg-primary-600/20 text-primary-400 rounded-full text-sm font-semibold mb-4">
+            <div className="text-center relative z-10">
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2, type: 'spring' }}
+                className="inline-block px-6 py-3 bg-primary-600/30 backdrop-blur-sm text-primary-300 rounded-full text-sm font-bold mb-6 border border-primary-500/50"
+              >
                 NEWS
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              </motion.div>
+              <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight"
+              >
                 {newsItems[currentIndex].title}
-              </h3>
-              <p className="text-gray-400">{newsItems[currentIndex].date}</p>
+              </motion.h3>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+                className="text-gray-300 text-lg md:text-xl"
+              >
+                {newsItems[currentIndex].date}
+              </motion.p>
             </div>
           </motion.div>
         </AnimatePresence>
 
         {/* ナビゲーションボタン */}
-        <button
+        <motion.button
           onClick={goToPrevious}
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-dark-700/80 hover:bg-dark-700 rounded-full flex items-center justify-center text-white transition-all z-10"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="absolute left-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-dark-900/80 backdrop-blur-md hover:bg-primary-600 rounded-full flex items-center justify-center text-white transition-all z-10 border border-dark-600 hover:border-primary-500 shadow-lg"
           aria-label="前へ"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
           </svg>
-        </button>
-        <button
+        </motion.button>
+        <motion.button
           onClick={goToNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-dark-700/80 hover:bg-dark-700 rounded-full flex items-center justify-center text-white transition-all z-10"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          className="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-dark-900/80 backdrop-blur-md hover:bg-primary-600 rounded-full flex items-center justify-center text-white transition-all z-10 border border-dark-600 hover:border-primary-500 shadow-lg"
           aria-label="次へ"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
           </svg>
-        </button>
+        </motion.button>
       </div>
 
       {/* インジケーター */}
-      <div className="flex justify-center mt-6 space-x-2">
+      <div className="flex justify-center mt-8 space-x-3">
         {newsItems.map((_, index) => (
-          <button
+          <motion.button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2 rounded-full transition-all ${
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            className={`rounded-full transition-all ${
               index === currentIndex
-                ? 'w-8 bg-primary-500'
-                : 'w-2 bg-dark-600 hover:bg-dark-500'
+                ? 'w-10 h-3 bg-primary-500'
+                : 'w-3 h-3 bg-dark-600 hover:bg-dark-500'
             }`}
             aria-label={`スライド ${index + 1}`}
           />
