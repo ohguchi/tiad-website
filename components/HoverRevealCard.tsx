@@ -28,7 +28,7 @@ export default function HoverRevealCard({
     return (
         <Link href={href}>
             <motion.div
-                className="relative h-[200px] md:h-[250px] overflow-hidden cursor-pointer group"
+                className="relative h-[200px] md:h-[250px] overflow-hidden cursor-pointer group shadow-sm hover:shadow-lg transition-shadow duration-400"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 whileHover={{ y: -5 }}

@@ -62,3 +62,70 @@ html {
 .section-gray {
   @apply bg-light-50;
 }
+
+/* ===== デザイン改善: タイポグラフィ ===== */
+
+/* 見出し用のレタースペーシング */
+.heading-tight {
+  letter-spacing: -0.02em;
+}
+
+.heading-wide {
+  letter-spacing: 0.05em;
+}
+
+/* グラデーションテキスト */
+.text-gradient-primary {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== デザイン改善: アニメーション ===== */
+
+/* リンクのアンダーラインアニメーション */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ===== デザイン改善: フォーカス状態 ===== */
+
+/* フォーカスリングの改善 */
+*:focus-visible {
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ボタンのフォーカス状態 */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+}
+
+/* ===== デザイン改善: カードのシャドウ ===== */
+
+.card-shadow-hover {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-shadow-hover:hover {
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}

@@ -25,8 +25,8 @@ export default function Home() {
     <div className="pt-0">
       <Hero />
 
-      {/* 斜め区切り */}
-      <SectionDivider variant="diagonal" color="#f5f5f5" />
+      {/* 斜め区切り: Hero(白) → メッセージ(light-50/#fafafa) */}
+      <SectionDivider variant="diagonal" color="#fafafa" />
 
       {/* メッセージセクション */}
       <section
@@ -58,8 +58,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* カーブ区切り */}
-      <SectionDivider variant="curve" color="#ffffff" />
+      {/* 斜め区切り: メッセージ(light-50) → コンセプト(白) */}
+      <SectionDivider variant="diagonal" color="#ffffff" flip={true} />
 
       {/* 会社コンセプトセクション */}
       <section className="relative py-24 bg-white overflow-hidden">
@@ -92,8 +92,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 斜め区切り（反転） */}
-      <SectionDivider variant="diagonal" color="#fafafa" flip={true} />
+      {/* 斜め区切り: コンセプト(白) → SERVICE(light-50) */}
+      <SectionDivider variant="diagonal" color="#fafafa" />
 
       {/* 3本の事業柱 - 参考サイトSERVICE風 */}
       <section className="py-24 bg-light-50">
@@ -141,8 +141,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ウェーブ区切り */}
-      <SectionDivider variant="wave" color="#ffffff" />
+      {/* 斜め区切り: SERVICE(light-50) → 実績統計(白) */}
+      <SectionDivider variant="diagonal" color="#ffffff" flip={true} />
 
       {/* 実績統計セクション */}
       <section className="relative py-24 bg-white overflow-hidden">
@@ -185,8 +185,8 @@ export default function Home() {
         </ParallaxSection>
       </section>
 
-      {/* カーブ区切り（反転） */}
-      <SectionDivider variant="curve" color="#ffffff" flip={true} />
+      {/* 斜め区切り: ニュース(light-50) → APPROACH(白) */}
+      <SectionDivider variant="diagonal" color="#ffffff" flip={true} />
 
       {/* アプローチセクション - ホバーで画像が現れるカード */}
       <section className="relative py-24 bg-white overflow-hidden">

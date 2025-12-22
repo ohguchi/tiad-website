@@ -39,7 +39,7 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-light-200' : 'bg-white/80 backdrop-blur-sm'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/98 backdrop-blur-md shadow-sm border-b border-light-100' : 'bg-white/80 backdrop-blur-sm'
         }`}
     >
       <nav className="container mx-auto px-4 lg:px-8">
@@ -61,9 +61,12 @@ export default function Header() {
               <div key={item.href} className="relative group">
                 <Link
                   href={item.href}
-                  className="flex items-center space-x-1 text-light-600 hover:text-primary-500 transition-colors duration-200 py-2 font-medium"
+                  className="relative flex items-center space-x-1 text-light-600 hover:text-primary-500 transition-colors duration-200 py-2 font-medium group/link"
                 >
-                  <span>{item.name}</span>
+                  <span className="relative">
+                    {item.name}
+                    <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary-500 transition-all duration-300 group-hover/link:w-full" />
+                  </span>
                   {item.submenu && (
                     <svg
                       className="w-4 h-4 ml-1"

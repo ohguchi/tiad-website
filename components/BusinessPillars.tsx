@@ -64,7 +64,7 @@ export default function BusinessPillars() {
                     <Link href={pillar.href}>
                         <motion.div
                             whileHover={{ y: -8 }}
-                            className="relative h-[450px] md:h-[550px] rounded-xl overflow-hidden cursor-pointer"
+                            className="relative h-[450px] md:h-[550px] rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-500"
                         >
                             {/* 背景画像 */}
                             <Image
@@ -125,8 +125,9 @@ export default function BusinessPillars() {
                             </div>
                         </motion.div>
                     </Link>
-                </motion.div>
-            ))}
-        </div>
+                </motion.div >
+            ))
+            }
+        </div >
     )
 }

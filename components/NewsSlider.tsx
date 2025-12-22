@@ -53,13 +53,13 @@ export default function NewsSlider() {
 
   return (
     <div className="relative max-w-5xl mx-auto">
-      <div className="relative h-80 md:h-96 bg-gradient-to-br from-dark-800 via-dark-700 to-dark-800 rounded-3xl overflow-hidden border border-dark-600 shadow-2xl">
+      <div className="relative h-80 md:h-96 bg-white rounded-3xl overflow-hidden border border-light-200 shadow-xl">
         {/* 背景パターン */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-5">
           <div
             className="w-full h-full"
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230ea5e9' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f97316' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             }}
           />
         </div>
@@ -78,7 +78,7 @@ export default function NewsSlider() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2, type: 'spring' }}
-                className="inline-block px-6 py-3 bg-primary-600/30 backdrop-blur-sm text-primary-300 rounded-full text-sm font-bold mb-6 border border-primary-500/50"
+                className="inline-block px-6 py-3 bg-primary-50 text-primary-500 rounded-full text-sm font-bold mb-6 border border-primary-100"
               >
                 NEWS
               </motion.div>
@@ -86,7 +86,7 @@ export default function NewsSlider() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight"
+                className="text-3xl md:text-5xl font-bold text-light-800 mb-6 leading-tight"
               >
                 {newsItems[currentIndex].title}
               </motion.h3>
@@ -94,7 +94,7 @@ export default function NewsSlider() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-gray-300 text-lg md:text-xl"
+                className="text-light-500 text-lg md:text-xl"
               >
                 {newsItems[currentIndex].date}
               </motion.p>
@@ -107,7 +107,7 @@ export default function NewsSlider() {
           onClick={goToPrevious}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="absolute left-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-dark-900/80 backdrop-blur-md hover:bg-primary-600 rounded-full flex items-center justify-center text-white transition-all z-10 border border-dark-600 hover:border-primary-500 shadow-lg"
+          className="absolute left-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-light-100 hover:bg-primary-500 rounded-full flex items-center justify-center text-light-600 hover:text-white transition-all z-10 border border-light-200 hover:border-primary-500 shadow-md"
           aria-label="前へ"
         >
           <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,7 +118,7 @@ export default function NewsSlider() {
           onClick={goToNext}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-dark-900/80 backdrop-blur-md hover:bg-primary-600 rounded-full flex items-center justify-center text-white transition-all z-10 border border-dark-600 hover:border-primary-500 shadow-lg"
+          className="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-light-100 hover:bg-primary-500 rounded-full flex items-center justify-center text-light-600 hover:text-white transition-all z-10 border border-light-200 hover:border-primary-500 shadow-md"
           aria-label="次へ"
         >
           <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,11 +135,10 @@ export default function NewsSlider() {
             onClick={() => goToSlide(index)}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
-            className={`rounded-full transition-all ${
-              index === currentIndex
+            className={`rounded-full transition-all ${index === currentIndex
                 ? 'w-10 h-3 bg-primary-500'
-                : 'w-3 h-3 bg-dark-600 hover:bg-dark-500'
-            }`}
+                : 'w-3 h-3 bg-light-300 hover:bg-light-400'
+              }`}
             aria-label={`スライド ${index + 1}`}
           />
         ))}
@@ -149,7 +148,7 @@ export default function NewsSlider() {
       <div className="text-center mt-8">
         <Link
           href="/news"
-          className="inline-block text-primary-400 hover:text-primary-300 transition-colors"
+          className="inline-block text-primary-500 hover:text-primary-600 transition-colors font-medium"
         >
           全てのニュースを見る →
         </Link>
@@ -157,5 +156,3 @@ export default function NewsSlider() {
     </div>
   )
 }
-
-
