@@ -1,7 +1,6 @@
 'use client'
 
 import ScrollReveal from '@/components/ScrollReveal'
-import SectionDivider from '@/components/SectionDivider'
 import HoverRevealCard from '@/components/HoverRevealCard'
 import { IconInfinity } from '@/components/Icons'
 import Link from 'next/link'
@@ -59,8 +58,6 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      <SectionDivider variant="diagonal" color="#ffffff" />
-
       <div className="container mx-auto px-4 lg:px-8 py-16 bg-white">
         <div className="max-w-4xl mx-auto">
 
@@ -104,7 +101,8 @@ export default function AboutPage() {
             </section>
           </ScrollReveal>
 
-          <SectionDivider variant="wave" color="#fafafa" />
+          {/* 区切り線 */}
+          <div className="border-b border-light-200 my-12" />
 
           {/* コンセプトセクション */}
           <section className="relative bg-gradient-to-br from-white via-primary-50/30 to-secondary-50/30 rounded-3xl p-10 md:p-14 my-20 border border-light-200 overflow-hidden">
@@ -204,7 +202,8 @@ export default function AboutPage() {
             </section>
           </ScrollReveal>
 
-          <SectionDivider variant="wave" color="#fafafa" />
+          {/* 区切り線 */}
+          <div className="border-b border-light-200 my-12" />
 
           {/* ビジョンセクション - ホバーエフェクト */}
           <section className="py-16 bg-light-50 -mx-4 lg:-mx-8 px-4 lg:px-8">
