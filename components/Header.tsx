@@ -31,6 +31,7 @@ export default function Header() {
       en: 'Business Information',
       submenu: [{ name: '制作実績', href: '/services/portfolio', en: 'Production Results' }],
     },
+    { name: 'お知らせ', href: '/news', en: 'News' },
     { name: 'お問い合わせ', href: '/contact', en: 'Contact Us' },
   ]
 
