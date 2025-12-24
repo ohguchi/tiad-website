@@ -1,20 +1,16 @@
 'use client'
 
-import { notFound } from 'next/navigation'
-import { use } from 'react'
+import { notFound, useParams } from 'next/navigation'
 import ScrollReveal from '@/components/ScrollReveal'
 import SectionDivider from '@/components/SectionDivider'
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import { getNewsItemBySlug, getAllNewsSlugs } from '@/lib/newsData'
+import { getNewsItemBySlug } from '@/lib/newsData'
 
-interface PageProps {
-    params: Promise<{ slug: string }>
-}
-
-export default function NewsDetailPage({ params }: PageProps) {
-    const { slug } = use(params)
+export default function NewsDetailPage() {
+    const params = useParams()
+    const slug = params.slug as string
     const newsItem = getNewsItemBySlug(slug)
 
     const heroRef = useRef<HTMLElement>(null)
