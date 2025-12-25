@@ -77,7 +77,7 @@ export default function Home() {
               <ScrollReveal delay={0.2}>
                 <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-3xl p-8 md:p-12 border border-light-200">
                   <p className="text-xl md:text-2xl text-light-700 leading-relaxed mb-6">
-                    人とICTの掛け合わせにより、
+                    人とICTの共創により、
                     <span className="text-primary-600 font-semibold">ビジネスの生産性を革命的に向上させる</span>
                     DX活用を提案します。
                   </p>

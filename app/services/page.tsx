@@ -97,7 +97,7 @@ export default function ServicesPage() {
                 事業案内
               </h1>
               <p className="text-lg md:text-xl text-light-500 max-w-2xl mx-auto">
-                人とICTの掛け合わせにより<br className="md:hidden" />
+                人とICTの共創により<br className="md:hidden" />
                 ビジネスの生産性を革命的に向上させる
               </p>
             </div>
