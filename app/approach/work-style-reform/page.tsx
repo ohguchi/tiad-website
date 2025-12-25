@@ -33,7 +33,7 @@ export default function WorkStyleReformPage() {
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary-900/85 via-primary-800/80 to-secondary-900/85" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-violet-600/90 via-fuchsia-600/85 to-rose-500/90" />
                 </div>
 
                 {/* 装飾パターン */}

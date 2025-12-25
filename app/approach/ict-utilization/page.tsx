@@ -286,31 +286,31 @@ export default function ICTUtilizationPage() {
                                                 step: '01',
                                                 title: '現状分析',
                                                 description: '既存システムと業務フローを詳細に分析し、課題と改善機会を特定します',
-                                                color: 'teal',
+                                                colorClass: 'bg-gradient-to-br from-teal-400 to-teal-600',
                                             },
                                             {
                                                 step: '02',
                                                 title: '戦略立案',
                                                 description: 'ビジネス目標に沿ったICT活用戦略とロードマップを策定します',
-                                                color: 'emerald',
+                                                colorClass: 'bg-gradient-to-br from-emerald-400 to-emerald-600',
                                             },
                                             {
                                                 step: '03',
                                                 title: 'ソリューション設計',
                                                 description: '最適な技術スタックを選定し、実装計画を設計します',
-                                                color: 'blue',
+                                                colorClass: 'bg-gradient-to-br from-blue-400 to-blue-600',
                                             },
                                             {
                                                 step: '04',
                                                 title: '導入・実装',
                                                 description: 'アジャイル手法により、段階的にシステムを構築・導入します',
-                                                color: 'cyan',
+                                                colorClass: 'bg-gradient-to-br from-cyan-400 to-cyan-600',
                                             },
                                             {
                                                 step: '05',
                                                 title: '運用・改善',
                                                 description: '継続的なモニタリングと改善により、効果を最大化します',
-                                                color: 'teal',
+                                                colorClass: 'bg-gradient-to-br from-teal-400 to-teal-600',
                                             },
                                         ].map((item, index) => (
                                             <motion.div
@@ -321,7 +321,7 @@ export default function ICTUtilizationPage() {
                                                 transition={{ delay: index * 0.1 }}
                                                 className="flex items-start gap-6"
                                             >
-                                                <div className={`flex-shrink-0 w-16 h-16 bg-gradient-to-br from-${item.color}-400 to-${item.color}-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg`}>
+                                                <div className={`flex-shrink-0 w-16 h-16 ${item.colorClass} rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg`}>
                                                     {item.step}
                                                 </div>
                                                 <div className="flex-1 bg-white rounded-2xl p-6 border border-light-200 shadow">
