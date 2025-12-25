@@ -212,19 +212,19 @@ export default function Home() {
                 title="AI・IoT・RPA"
                 subtitle="新時代のテクノロジー活用"
                 image="/images/approach-ai.png"
-                href="/services"
+                href="/approach/ai-iot-rpa"
               />
               <HoverRevealCard
                 title="働き方改革"
                 subtitle="真の生産性向上へ"
                 image="/images/approach-work.png"
-                href="/services"
+                href="/approach/work-style-reform"
               />
               <HoverRevealCard
                 title="ICT活用"
                 subtitle="デジタルトランスフォーメーション"
                 image="/images/approach-ict.png"
-                href="/services"
+                href="/approach/ict-utilization"
               />
             </div>
           </ScrollReveal>
