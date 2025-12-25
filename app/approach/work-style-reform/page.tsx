@@ -33,7 +33,7 @@ export default function WorkStyleReformPage() {
                         className="object-cover"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-br from-red-600/90 via-orange-500/85 to-amber-500/90" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/90 via-yellow-500/85 to-orange-400/90" />
                 </div>
 
                 {/* 装飾パターン */}
@@ -173,7 +173,7 @@ export default function WorkStyleReformPage() {
                                                 whileHover={{ scale: 1.05 }}
                                                 className="text-center"
                                             >
-                                                <div className="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                                <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-amber-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                                                     <span className="text-3xl font-bold text-white">1</span>
                                                 </div>
                                                 <h3 className="text-xl font-bold text-light-800 mb-2">
@@ -187,7 +187,7 @@ export default function WorkStyleReformPage() {
                                                 whileHover={{ scale: 1.05 }}
                                                 className="text-center"
                                             >
-                                                <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                                <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                                                     <span className="text-3xl font-bold text-white">2</span>
                                                 </div>
                                                 <h3 className="text-xl font-bold text-light-800 mb-2">
@@ -201,7 +201,7 @@ export default function WorkStyleReformPage() {
                                                 whileHover={{ scale: 1.05 }}
                                                 className="text-center"
                                             >
-                                                <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                                <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                                                     <span className="text-3xl font-bold text-white">3</span>
                                                 </div>
                                                 <h3 className="text-xl font-bold text-light-800 mb-2">
@@ -263,7 +263,7 @@ export default function WorkStyleReformPage() {
                         {/* CTAセクション */}
                         <ScrollReveal>
                             <section className="text-center">
-                                <div className="bg-gradient-to-br from-red-500 via-orange-500 to-amber-500 rounded-3xl p-12 text-white">
+                                <div className="bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 rounded-3xl p-12 text-white">
                                     <h2 className="text-3xl md:text-4xl font-bold mb-6">
                                         働き方改革について相談する
                                     </h2>
@@ -274,7 +274,7 @@ export default function WorkStyleReformPage() {
                                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                             <Link
                                                 href="/contact"
-                                                className="inline-block px-10 py-4 bg-white text-red-600 font-bold text-lg rounded-full hover:bg-light-50 transition-all duration-300 shadow-lg"
+                                                className="inline-block px-10 py-4 bg-white text-amber-600 font-bold text-lg rounded-full hover:bg-light-50 transition-all duration-300 shadow-lg"
                                             >
                                                 お問い合わせ
                                             </Link>
