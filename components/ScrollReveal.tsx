@@ -32,7 +32,7 @@ export default function ScrollReveal({
       ref={ref}
       initial={directions[direction]}
       animate={isInView ? { x: 0, y: 0, opacity: 1 } : directions[direction]}
-      transition={{ duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
       className={className}
     >
       {children}

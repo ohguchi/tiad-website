@@ -20,7 +20,8 @@ export default function ParallaxSection({
     offset: ['start end', 'end start'],
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100 * speed])
+  // パララックス効果を抑えめに（-100→-50）でスムーズさを向上
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50 * speed])
 
   return (
     <motion.div ref={ref} style={{ y }} className={className}>

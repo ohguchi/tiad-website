@@ -53,24 +53,32 @@ export default function VideoHero({ children, overlayOpacity = 0.3, className = 
             'rgba(45, 212, 191, 0.2)',  // lighter teal
         ]
 
-        // パーティクル初期化
-        for (let i = 0; i < 60; i++) {
+        // パーティクル初期化（30個に削減してパフォーマンス改善）
+        for (let i = 0; i < 30; i++) {
             particles.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                radius: Math.random() * 3 + 1,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5,
-                opacity: Math.random() * 0.5 + 0.2,
+                radius: Math.random() * 3 + 1.5,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                opacity: Math.random() * 0.5 + 0.3,
                 color: colors[Math.floor(Math.random() * colors.length)],
             })
         }
 
         // 波形設定
         let waveOffset = 0
-        const waveSpeed = 0.02
+        const waveSpeed = 0.015
+        let frameCount = 0
 
         const animate = () => {
+            frameCount++
+            // 2フレームに1回描画してパフォーマンス改善
+            if (frameCount % 2 === 0) {
+                requestAnimationFrame(animate)
+                return
+            }
+
             ctx.clearRect(0, 0, canvas.width, canvas.height)
 
             // グラデーション背景
@@ -81,10 +89,10 @@ export default function VideoHero({ children, overlayOpacity = 0.3, className = 
             ctx.fillStyle = gradient
             ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-            // 波形を描画
+            // 波形を描画（ステップを15に増やして計算削減）
             ctx.beginPath()
             ctx.moveTo(0, canvas.height)
-            for (let x = 0; x <= canvas.width; x += 10) {
+            for (let x = 0; x <= canvas.width; x += 15) {
                 const y = canvas.height - 100 + Math.sin((x * 0.01) + waveOffset) * 30 + Math.sin((x * 0.02) + waveOffset * 0.5) * 20
                 ctx.lineTo(x, y)
             }
@@ -96,7 +104,7 @@ export default function VideoHero({ children, overlayOpacity = 0.3, className = 
             // 2つ目の波
             ctx.beginPath()
             ctx.moveTo(0, canvas.height)
-            for (let x = 0; x <= canvas.width; x += 10) {
+            for (let x = 0; x <= canvas.width; x += 15) {
                 const y = canvas.height - 60 + Math.sin((x * 0.015) + waveOffset * 1.2) * 20 + Math.cos((x * 0.01) + waveOffset) * 15
                 ctx.lineTo(x, y)
             }
@@ -122,16 +130,18 @@ export default function VideoHero({ children, overlayOpacity = 0.3, className = 
                 ctx.fillStyle = p.color
                 ctx.fill()
 
-                // 近いパーティクル同士を線で結ぶ
+                // 近いパーティクル同士を線で結ぶ（距離を100に短縮）
                 particles.slice(i + 1).forEach((p2) => {
                     const dx = p.x - p2.x
                     const dy = p.y - p2.y
-                    const dist = Math.sqrt(dx * dx + dy * dy)
-                    if (dist < 150) {
+                    const distSq = dx * dx + dy * dy
+                    // sqrt を避けて distSq で判定（100^2 = 10000）
+                    if (distSq < 10000) {
+                        const dist = Math.sqrt(distSq)
                         ctx.beginPath()
                         ctx.moveTo(p.x, p.y)
                         ctx.lineTo(p2.x, p2.y)
-                        ctx.strokeStyle = `rgba(249, 115, 22, ${0.1 * (1 - dist / 150)})`
+                        ctx.strokeStyle = `rgba(249, 115, 22, ${0.15 * (1 - dist / 100)})`
                         ctx.lineWidth = 0.5
                         ctx.stroke()
                     }

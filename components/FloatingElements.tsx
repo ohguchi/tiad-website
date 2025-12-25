@@ -5,55 +5,50 @@ import { motion } from 'framer-motion'
 export default function FloatingElements() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* 浮遊する装飾要素 */}
-      {[...Array(6)].map((_, i) => (
+      {/* 浮遊する装飾要素（3個に削減） */}
+      {[...Array(3)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute w-2 h-2 bg-primary-400 rounded-full"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: `${25 + i * 25}%`,
+            top: `${20 + i * 20}%`,
           }}
           animate={{
-            y: [0, -30, 0],
-            x: [0, Math.random() * 20 - 10, 0],
-            opacity: [0.3, 0.8, 0.3],
-            scale: [1, 1.5, 1],
+            y: [0, -20, 0],
+            opacity: [0.3, 0.6, 0.3],
           }}
           transition={{
-            duration: 3 + Math.random() * 2,
+            duration: 5 + i,
             repeat: Infinity,
-            delay: Math.random() * 2,
             ease: 'easeInOut',
           }}
         />
       ))}
 
-      {/* 大きな浮遊する円 */}
+      {/* 大きな浮遊する円（アニメーション時間を長くして負荷軽減） */}
       <motion.div
         className="absolute top-1/4 right-1/4 w-32 h-32 border border-primary-500/30 rounded-full"
         animate={{
-          y: [0, -50, 0],
-          rotate: [0, 360],
-          scale: [1, 1.2, 1],
+          y: [0, -30, 0],
+          rotate: [0, 180],
         }}
         transition={{
-          duration: 20,
+          duration: 30,
           repeat: Infinity,
-          ease: 'easeInOut',
+          ease: 'linear',
         }}
       />
       <motion.div
         className="absolute bottom-1/4 left-1/4 w-24 h-24 border border-primary-400/20 rounded-full"
         animate={{
-          y: [0, 50, 0],
-          rotate: [0, -360],
-          scale: [1, 1.3, 1],
+          y: [0, 30, 0],
+          rotate: [0, -180],
         }}
         transition={{
-          duration: 25,
+          duration: 35,
           repeat: Infinity,
-          ease: 'easeInOut',
+          ease: 'linear',
         }}
       />
     </div>
