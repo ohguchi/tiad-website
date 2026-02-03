@@ -79,7 +79,7 @@ export default function Home() {
                   <p className="text-xl md:text-2xl text-light-700 leading-relaxed mb-6">
                     人とICTの共創により、
                     <span className="text-primary-600 font-semibold">ビジネスの生産性を革命的に向上させる</span>
-                    DX活用を提案します。
+                    DX推進を提案します。
                   </p>
                   <p className="text-lg text-light-600 leading-relaxed">
                     私たちは単なるシステム導入ではなく、お客様のビジネスを根本から変革するパートナーとして、
