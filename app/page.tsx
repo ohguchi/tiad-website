@@ -13,7 +13,7 @@ const services = [
     en: 'Infrastructure',
     ja: 'インフラ保守事業',
     desc: 'データセンターのサーバー、VM、仮想ルーターの保守。24時間365日の監視体制で、事業の継続を支えます。',
-    image: '/images/service-datacenter.png',
+    image: '/images/service-datacenter.jpg',
     alt: 'データセンターのサーバーラック',
     href: '/services#datacenter',
   },
@@ -21,7 +21,7 @@ const services = [
     en: 'Fiber Optic',
     ja: '通信コンサル事業',
     desc: '集合住宅への光ファイバー導入をご提案。入居者の満足度と、物件の資産価値を高めます。',
-    image: '/images/service-apartment.png',
+    image: '/images/service-apartment.jpg',
     alt: '光回線を備えた集合住宅',
     href: '/services#apartment',
   },
@@ -29,7 +29,7 @@ const services = [
     en: 'Development',
     ja: 'アプリ開発事業',
     desc: '中小企業向けの業務改善アプリを、フルスクラッチで開発します。現場の手間を一つずつ減らします。',
-    image: '/images/service-development.png',
+    image: '/images/service-development.jpg',
     alt: '業務アプリの開発風景',
     href: '/services#app-development',
   },
@@ -128,9 +128,10 @@ export default function Home() {
           <SectionHead en="Approach" ja="私たちのアプローチ" desc="ICT技術を活用した、働き方改革のためのソリューションを提供します。" />
           <div className="grid gap-8 md:grid-cols-[5fr_7fr] md:items-start md:gap-16">
             <DuoImage
-              src="/images/approach-work.png"
+              src="/images/approach-work.jpg"
               alt="ノートPCで仕事をする社員"
               caption="WORK STYLE REFORM"
+              position="68% center"
               className="aspect-[4/5] max-h-[560px] w-full"
             />
             <div className="border-t border-ink">

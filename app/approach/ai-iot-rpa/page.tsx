@@ -47,7 +47,7 @@ export default function AIIoTRPAPage() {
         en="AI・IoT・RPA"
         ja="新時代のテクノロジー活用"
         parents={[{ name: 'Approach', href: '/#approach' }]}
-        image="/images/approach/ai-iot-rpa-bg.jpg"
+        image="/images/approach/ai-iot-rpa.jpg"
         imageAlt="AI・IoT・RPAのイメージ"
       />
 

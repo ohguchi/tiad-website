@@ -10,6 +10,8 @@ interface DuoImageProps {
   sizes?: string
   priority?: boolean
   caption?: string
+  // 切り抜くときに残したい位置（例：'70% center' なら右寄りを残す）
+  position?: string
 }
 
 // 中身（画像）だけを切り抜いて開く。外枠は切り抜かないので「画面に入ったか」の判定が正しく働く
@@ -26,6 +28,7 @@ export default function DuoImage({
   sizes = '(min-width: 900px) 50vw, 100vw',
   priority = false,
   caption,
+  position = 'center',
 }: DuoImageProps) {
   const reduce = useReducedMotion()
 
@@ -41,7 +44,7 @@ export default function DuoImage({
         variants={reveal}
         transition={{ duration: 1.1, ease: [0.7, 0, 0.2, 1] }}
       >
-        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
+        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" style={{ objectPosition: position }} />
       </motion.div>
       {caption && (
         <figcaption className="absolute bottom-0 left-0 z-10 bg-white px-3 py-2 font-mono text-[11px] tracking-[0.1em]">

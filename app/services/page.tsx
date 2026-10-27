@@ -12,7 +12,7 @@ const services = [
     title: 'データセンターサーバー保守業務',
     description:
       'VMwareや仮想ルーターの保守・メンテナンスを中心に、データセンターの安定稼働を支えるインフラ保守サービスを提供します。24時間365日の監視体制で、お客様のビジネス継続をサポートします。',
-    image: '/images/service-datacenter.png',
+    image: '/images/service-datacenter.jpg',
     alt: 'データセンターのサーバーラック',
     features: [
       { title: 'VMware環境保守', desc: '仮想マシンの構築・運用・最適化' },
@@ -27,7 +27,7 @@ const services = [
     title: '集合住宅向けインターネット回線導入',
     description:
       '集合住宅への光ファイバー設備導入により、物件の資産価値向上をご提案します。インターネット環境は今や入居者にとって必須のインフラ。入居率向上と差別化を実現します。',
-    image: '/images/service-apartment.png',
+    image: '/images/service-apartment.jpg',
     alt: '光回線を備えた集合住宅',
     features: [
       { title: '資産価値向上', desc: '高速インターネット完備物件として差別化' },
@@ -42,7 +42,7 @@ const services = [
     title: '中小企業向け業務改善アプリケーション',
     description:
       '中小企業の業務に合わせたアプリケーションをフルスクラッチで作成します。既製品では対応できない独自の業務フローを、お客様専用のシステムで効率化。DX推進を強力にサポートします。',
-    image: '/images/service-development.png',
+    image: '/images/service-development.jpg',
     alt: '業務アプリの開発風景',
     features: [
       { title: 'フルスクラッチ開発', desc: 'お客様専用のオーダーメイドシステム' },

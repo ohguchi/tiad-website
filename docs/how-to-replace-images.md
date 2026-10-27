@@ -31,11 +31,11 @@ npm run dev
 
 | ファイル | 使っている場所 | 比率 |
 |---|---|---|
-| `public/images/service-datacenter.png` | トップ・事業案内（インフラ保守事業） | 16:10 |
-| `public/images/service-apartment.png` | トップ・事業案内（通信コンサル事業） | 16:10 |
-| `public/images/service-development.png` | トップ・事業案内（アプリ開発事業） | 16:10 |
-| `public/images/approach-work.png` | トップ（アプローチ欄） | 4:5 |
-| `public/images/approach/ai-iot-rpa-bg.jpg` | AI・IoT・RPA ページ | 16:9 |
+| `public/images/service-datacenter.jpg` | トップ・事業案内（インフラ保守事業） | 16:10 |
+| `public/images/service-apartment.jpg` | トップ・事業案内（通信コンサル事業） | 16:10 |
+| `public/images/service-development.jpg` | トップ・事業案内（アプリ開発事業） | 16:10 |
+| `public/images/approach-work.jpg` | トップ（アプローチ欄） | 4:5 |
+| `public/images/approach/ai-iot-rpa.jpg` | AI・IoT・RPA ページ | 16:9 |
 | `public/images/approach/work-reform-bg.jpg` | 働き方改革ページ | 16:9 |
 | `public/images/approach/ict-utilization-bg.jpg` | ICT活用ページ | 16:9 |
 | `public/images/vision-work.png` | 会社概要（ビジョン欄） | 3:2 |
@@ -56,27 +56,27 @@ neon, hologram, glowing particles, futuristic HUD, purple lighting, lens flare, 
 
 ### 個別のプロンプト
 
-**service-datacenter.png**
+**service-datacenter.jpg**
 ```
 A Japanese infrastructure engineer in a plain navy work jacket checking cables on a server rack in a quiet data center aisle, side view, neat cable management, cool even overhead lighting, engineer occupies the right third of the frame.
 ```
 
-**service-apartment.png**
+**service-apartment.jpg**
 ```
 A clean modern mid-rise apartment building in a residential district of Nagoya at blue hour, photographed from street level, some windows warmly lit, utility poles with fiber optic cables along the street in the foreground.
 ```
 
-**service-development.png**
+**service-development.jpg**
 ```
 Two Japanese software developers discussing work at a simple wooden desk in a small office, one pointing at a laptop screen, screen content out of focus, sticky notes on the wall behind them, over-the-shoulder view.
 ```
 
-**approach-work.png**
+**approach-work.jpg**
 ```
 A Japanese office worker in business casual working on a laptop beside a large window in a bright minimal office, calm focused expression, a few green plants, soft morning light from the left.
 ```
 
-**approach/ai-iot-rpa-bg.jpg**
+**approach/ai-iot-rpa.jpg**
 ```
 Close-up of small IoT sensors mounted on machinery in a tidy small Japanese manufacturing workshop, shallow depth of field, the left half of the frame is calm and out of focus to leave space for text.
 ```
