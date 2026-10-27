@@ -36,9 +36,9 @@ npm run dev
 | `public/images/service-development.jpg` | トップ・事業案内（アプリ開発事業） | 16:10 |
 | `public/images/approach-work.jpg` | トップ（アプローチ欄） | 4:5 |
 | `public/images/approach/ai-iot-rpa.jpg` | AI・IoT・RPA ページ | 16:9 |
-| `public/images/approach/work-reform-bg.jpg` | 働き方改革ページ | 16:9 |
-| `public/images/approach/ict-utilization-bg.jpg` | ICT活用ページ | 16:9 |
-| `public/images/vision-work.png` | 会社概要（ビジョン欄） | 3:2 |
+| `public/images/approach/work-reform.jpg` | 働き方改革ページ | 16:9 |
+| `public/images/approach/ict-utilization.jpg` | ICT活用ページ | 16:9 |
+| `public/images/vision-work.jpg` | 会社概要（ビジョン欄） | 3:2 |
 
 ## 画像生成AI用のプロンプト
 
@@ -81,17 +81,17 @@ A Japanese office worker in business casual working on a laptop beside a large w
 Close-up of small IoT sensors mounted on machinery in a tidy small Japanese manufacturing workshop, shallow depth of field, the left half of the frame is calm and out of focus to leave space for text.
 ```
 
-**approach/work-reform-bg.jpg**
+**approach/work-reform.jpg**
 ```
 A small Japanese team holding a short standing meeting around a whiteboard in an open office, natural poses, whiteboard content blurred, wide shot with empty space on the left side for text.
 ```
 
-**approach/ict-utilization-bg.jpg**
+**approach/ict-utilization.jpg**
 ```
 Top-down view of a tidy desk where a laptop sits next to a neat stack of paper documents and a closed binder, hands typing on the laptop, screen content out of focus, plenty of empty desk surface on the left for text.
 ```
 
-**vision-work.png**
+**vision-work.jpg**
 ```
 Japanese colleagues talking casually in a bright office hallway, walking side by side, natural laughter, shot from a slight distance, faces partly turned away from the camera.
 ```
@@ -100,3 +100,5 @@ Japanese colleagues talking casually in a bright office hallway, walking side by
 
 - AIで生成した人物を「当社の社員」として見せると、事実と異なる印象を与えます。人物が写る画像は雰囲気を伝えるイメージ写真として使い、社員紹介や代表挨拶には使わないでください。
 - 画像の比率が一覧と違っても表示はされますが、端が切れることがあります。
+- 同じファイル名で上書きすると、公開先や手元のサーバーに縮小済みの古い画像が残り、新しい画像が表示されないことがあります。その場合は、ファイル名を変えてからコード側の参照も合わせて変更してください（例：`ai-iot-rpa-bg.jpg` → `ai-iot-rpa.jpg`）。
+- 端が切れて大事な部分が見えない場合は、切り抜き位置を指定できます。`DuoImage` なら `position`、ページ上部の画像（`PageHero`）なら `imagePosition` に、`"68% center"`（右寄りを残す）や `"center 30%"`（上寄りを残す）のように指定します。

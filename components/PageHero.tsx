@@ -7,12 +7,14 @@ interface PageHeroProps {
   lead?: string
   image?: string
   imageAlt?: string
+  // 画像を切り抜くときに残したい位置（例：'center 30%' なら上寄りを残す）
+  imagePosition?: string
   // パンくず（現在のページより上の階層）
   parents?: { name: string; href: string }[]
 }
 
 // 下層ページ共通のページ見出し
-export default function PageHero({ en, ja, lead, image, imageAlt = '', parents = [] }: PageHeroProps) {
+export default function PageHero({ en, ja, lead, image, imageAlt = '', imagePosition, parents = [] }: PageHeroProps) {
   return (
     <section className="border-b border-line">
       <div className="wrap pb-14 pt-12 md:pb-20 md:pt-16">
@@ -41,7 +43,7 @@ export default function PageHero({ en, ja, lead, image, imageAlt = '', parents =
 
       {image && (
         <div className="wrap pb-14 md:pb-20">
-          <DuoImage src={image} alt={imageAlt} priority className="aspect-[16/9] w-full md:aspect-[21/8]" sizes="100vw" />
+          <DuoImage src={image} alt={imageAlt} position={imagePosition} priority className="aspect-[16/9] w-full md:aspect-[21/8]" sizes="100vw" />
         </div>
       )}
     </section>
