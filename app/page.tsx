@@ -1,281 +1,186 @@
-'use client'
-
-import Hero from '@/components/Hero'
-import NewsSlider from '@/components/NewsSlider'
-import ScrollReveal from '@/components/ScrollReveal'
-import ParallaxSection from '@/components/ParallaxSection'
-import BusinessPillars from '@/components/BusinessPillars'
-import CounterSection from '@/components/CounterSection'
-import SectionDivider from '@/components/SectionDivider'
-import HoverRevealCard from '@/components/HoverRevealCard'
-import { IconArrowRight } from '@/components/Icons'
 import Link from 'next/link'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import Hero from '@/components/Hero'
+import Marquee from '@/components/Marquee'
+import InfinityDraw from '@/components/InfinityDraw'
+import SectionHead from '@/components/SectionHead'
+import DuoImage from '@/components/DuoImage'
+import ScrollReveal from '@/components/ScrollReveal'
+import CtaBand from '@/components/CtaBand'
+import { newsItems } from '@/lib/newsData'
+
+const services = [
+  {
+    en: 'Infrastructure',
+    ja: 'インフラ保守事業',
+    desc: 'データセンターのサーバー、VM、仮想ルーターの保守。24時間365日の監視体制で、事業の継続を支えます。',
+    image: '/images/service-datacenter.png',
+    alt: 'データセンターのサーバーラック',
+    href: '/services#datacenter',
+  },
+  {
+    en: 'Fiber Optic',
+    ja: '通信コンサル事業',
+    desc: '集合住宅への光ファイバー導入をご提案。入居者の満足度と、物件の資産価値を高めます。',
+    image: '/images/service-apartment.png',
+    alt: '光回線を備えた集合住宅',
+    href: '/services#apartment',
+  },
+  {
+    en: 'Development',
+    ja: 'アプリ開発事業',
+    desc: '中小企業向けの業務改善アプリを、フルスクラッチで開発します。現場の手間を一つずつ減らします。',
+    image: '/images/service-development.png',
+    alt: '業務アプリの開発風景',
+    href: '/services#app-development',
+  },
+]
+
+const approaches = [
+  { title: 'AI・IoT・RPA', desc: '新しいテクノロジーで、繰り返し作業を自動化する。', href: '/approach/ai-iot-rpa' },
+  { title: '働き方改革', desc: '時間ではなく、成果で働ける仕組みをつくる。', href: '/approach/work-style-reform' },
+  { title: 'ICT活用', desc: 'クラウドとデータで、会社の動きを見えるようにする。', href: '/approach/ict-utilization' },
+]
 
 export default function Home() {
-  const messageRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress: messageScroll } = useScroll({
-    target: messageRef,
-    offset: ['start end', 'end start'],
-  })
-  const messageY = useTransform(messageScroll, [0, 1], [50, -50])
-
   return (
-    <div className="pt-0">
+    <>
       <Hero />
+      <Marquee />
 
-      {/* 斜め区切り: Hero(白) → メッセージ(light-50/#fafafa) */}
-      <SectionDivider variant="diagonal" color="#fafafa" />
-
-      {/* メッセージセクション */}
-      <section
-        ref={messageRef}
-        className="relative py-24 md:py-32 bg-light-50 overflow-hidden"
-      >
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <motion.div
-            style={{ y: messageY }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <ScrollReveal delay={0.2}>
-              <h2 className="text-4xl md:text-6xl font-bold mb-8 text-light-800">
-                人財 × テクノロジー = <span className="text-primary-500">∞</span>
+      {/* 理念・ミッション */}
+      <section className="border-b border-line py-[88px] md:py-[120px]">
+        <div className="wrap grid gap-10 md:grid-cols-[200px_1fr] md:gap-x-12 md:gap-y-[72px]">
+          <p className="eyebrow m-0 md:pt-3.5">Philosophy</p>
+          <div className="grid min-w-0 gap-10">
+            <ScrollReveal>
+              <h2 className="m-0 flex flex-wrap items-center gap-x-[18px] gap-y-1 text-[clamp(30px,4.6vw,58px)] font-bold leading-[1.3] tracking-[0.02em]">
+                <span>人財</span>
+                <span className="font-display font-normal text-mute">×</span>
+                <span>テクノロジー</span>
+                <span className="font-display font-normal text-mute">=</span>
+                <InfinityDraw className="w-[clamp(120px,15vw,200px)] text-brand" />
               </h2>
             </ScrollReveal>
-            <ScrollReveal delay={0.4}>
-              <p className="text-xl md:text-2xl text-light-600 leading-relaxed mb-4">
-                人の持つ可能性を広げるために
-              </p>
-              <p className="text-xl md:text-2xl text-light-600 leading-relaxed mb-4">
-                人との結びつきを強くするために
-              </p>
-              <p className="text-lg md:text-xl text-light-500 leading-relaxed">
-                私たちは新時代の技術を提供していきます
-              </p>
-            </ScrollReveal>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 斜め区切り: メッセージ(light-50) → コンセプト(白) */}
-      <SectionDivider variant="diagonal" color="#ffffff" flip={true} />
-
-      {/* 会社コンセプトセクション */}
-      <section className="relative py-24 bg-white overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <ParallaxSection speed={0.1}>
-            <div className="max-w-4xl mx-auto">
-              <ScrollReveal>
-                <div className="text-center mb-12">
-                  <p className="text-primary-500 text-sm tracking-widest mb-4 font-medium">WHY TiAD</p>
-                  <h2 className="text-3xl md:text-5xl font-bold text-light-800 mb-8">
-                    私たちの<span className="text-primary-500">ミッション</span>
-                  </h2>
-                </div>
-              </ScrollReveal>
-              <ScrollReveal delay={0.2}>
-                <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-3xl p-8 md:p-12 border border-light-200">
-                  <p className="text-xl md:text-2xl text-light-700 leading-relaxed mb-6">
-                    人とICTの共創により、
-                    <span className="text-primary-600 font-semibold">ビジネスの生産性を革命的に向上させる</span>
-                    DX推進を提案します。
-                  </p>
-                  <p className="text-lg text-light-600 leading-relaxed">
-                    私たちは単なるシステム導入ではなく、お客様のビジネスを根本から変革するパートナーとして、
-                    最新のICT技術を活用した真の働き方改革を実現します。
-                  </p>
-                </div>
-              </ScrollReveal>
-            </div>
-          </ParallaxSection>
-        </div>
-      </section>
-
-      {/* 斜め区切り: コンセプト(白) → SERVICE(light-50) */}
-      <SectionDivider variant="diagonal" color="#fafafa" />
-
-      {/* 3本の事業柱 - 参考サイトSERVICE風 */}
-      <section className="py-24 bg-light-50">
-        <div className="container mx-auto px-4 lg:px-8">
-          {/* ヘッダー部分 - 左右分割レイアウト */}
-          <ScrollReveal>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-8">
-              <div>
-                <h2 className="text-4xl md:text-6xl font-bold text-light-800 mb-2">
-                  SERVICE
-                </h2>
-                <p className="text-primary-500 text-sm font-medium">私たちが取り組む事業</p>
+            <ScrollReveal delay={0.1}>
+              <div className="grid max-w-[34em] gap-1 text-[clamp(17px,1.6vw,20px)] leading-[2]">
+                <p className="m-0">人の持つ可能性を広げるために。</p>
+                <p className="m-0">人との結びつきを強くするために。</p>
+                <p className="m-0 text-mute">私たちは、新しい時代の技術を提供していきます。</p>
               </div>
-              <p className="text-light-500 max-w-lg text-base leading-relaxed">
-                ICTを活用したビジネスの生産性向上を実現するための取り組みです。
-                お客様と協力し、新たなビジネスシステムを作り上げていきます。
-              </p>
-            </div>
-          </ScrollReveal>
-
-          {/* 事業カード */}
-          <ScrollReveal delay={0.2}>
-            <BusinessPillars />
-          </ScrollReveal>
-
-          {/* CTA部分 */}
-          <ScrollReveal delay={0.4}>
-            <div className="flex justify-end mt-12">
-              <motion.div whileHover={{ x: 5 }}>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center text-primary-500 hover:text-primary-600 transition-colors text-lg font-medium group"
-                >
-                  私たちの事業内容について
-                  <motion.div
-                    className="ml-3 w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center group-hover:bg-primary-600 transition-colors"
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <IconArrowRight size={18} className="text-white" />
-                  </motion.div>
-                </Link>
-              </motion.div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* 斜め区切り: SERVICE(light-50) → 実績統計(白) */}
-      <SectionDivider variant="diagonal" color="#ffffff" flip={true} />
-
-      {/* 実績統計セクション */}
-      <section className="relative py-24 bg-white overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <ParallaxSection speed={0.1}>
-            <ScrollReveal>
-              <div className="text-center mb-16">
-                <p className="text-primary-500 text-sm tracking-widest mb-4 font-medium">ACHIEVEMENTS</p>
-                <h2 className="text-3xl md:text-5xl font-bold text-light-800">
-                  数字で見る<span className="text-primary-500">TiAD</span>
-                </h2>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <CounterSection />
-            </ScrollReveal>
-          </ParallaxSection>
-        </div>
-      </section>
-
-      {/* 斜め区切り */}
-      <SectionDivider variant="diagonal" color="#fafafa" />
-
-      {/* ニュースセクション */}
-      <section className="relative py-24 bg-light-50">
-        <ParallaxSection speed={0.1}>
-          <div className="container mx-auto px-4 lg:px-8">
-            <ScrollReveal>
-              <div className="text-center mb-16">
-                <p className="text-primary-500 text-sm tracking-widest mb-4 font-medium">NEWS</p>
-                <h2 className="text-3xl md:text-5xl font-bold text-light-800">
-                  お知らせ
-                </h2>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <NewsSlider />
             </ScrollReveal>
           </div>
-        </ParallaxSection>
-      </section>
 
-      {/* 斜め区切り: ニュース(light-50) → APPROACH(白) */}
-      <SectionDivider variant="diagonal" color="#ffffff" flip={true} />
-
-      {/* アプローチセクション - ホバーで画像が現れるカード */}
-      <section className="relative py-24 bg-white overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <ScrollReveal>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-8">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-light-800 mb-2">
-                  APPROACH
-                </h2>
-                <p className="text-primary-500 text-sm font-medium">私たちのアプローチ</p>
-              </div>
-              <p className="text-light-500 max-w-lg text-base leading-relaxed">
-                ICT技術を活用した働き方改革のソリューションを提供します
+          <div className="grid gap-4 border-t border-line pt-10 md:col-start-2 md:grid-cols-[200px_1fr] md:gap-x-12">
+            <p className="eyebrow m-0 md:pt-2">Mission</p>
+            <ScrollReveal className="grid min-w-0 gap-4">
+              <p className="m-0 text-[clamp(20px,2.2vw,26px)] font-bold leading-[1.8]">
+                人とICTの共創により、<em className="not-italic text-brand">ビジネスの生産性を革命的に向上させる</em>
+                DX推進を提案します。
               </p>
-            </div>
-          </ScrollReveal>
-
-          {/* ホバーで画像が現れるカード */}
-          <ScrollReveal delay={0.2}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-light-200">
-              <HoverRevealCard
-                title="AI・IoT・RPA"
-                subtitle="新時代のテクノロジー活用"
-                image="/images/approach-ai.png"
-                href="/approach/ai-iot-rpa"
-              />
-              <HoverRevealCard
-                title="働き方改革"
-                subtitle="真の生産性向上へ"
-                image="/images/approach-work.png"
-                href="/approach/work-style-reform"
-              />
-              <HoverRevealCard
-                title="ICT活用"
-                subtitle="デジタルトランスフォーメーション"
-                image="/images/approach-ict.png"
-                href="/approach/ict-utilization"
-              />
-            </div>
-          </ScrollReveal>
+              <p className="m-0 max-w-[40em] text-mute">
+                単なるシステム導入ではなく、お客様のビジネスを根本から変えるパートナーとして、最新のICT技術を活用した働き方改革を実現します。
+              </p>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
 
-      {/* CTAセクション */}
-      <section className="relative py-24 bg-gradient-to-br from-primary-500 to-primary-600 overflow-hidden">
-        {/* 装飾パターン */}
-        <div className="absolute inset-0 opacity-10">
-          <motion.div
-            className="absolute inset-0"
-            animate={{
-              backgroundPosition: ['0% 0%', '100% 100%'],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              repeatType: 'reverse',
-            }}
-            style={{
-              backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-              backgroundSize: '40px 40px',
-            }}
+      {/* 事業 */}
+      <section className="border-b border-line py-[88px] md:py-[120px]">
+        <div className="wrap">
+          <SectionHead
+            en="Service"
+            ja="私たちが取り組む事業"
+            desc="ICTを活用してビジネスの生産性を高めるための取り組みです。お客様と協力し、新しい仕組みを一緒につくります。"
           />
-        </div>
-        <ParallaxSection speed={0.2}>
-          <div className="container mx-auto px-4 lg:px-8 text-center relative z-10">
-            <ScrollReveal>
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                お問い合わせ
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-                DX推進や業務改善について、お気軽にご相談ください
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.4}>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  href="/contact"
-                  className="inline-block px-10 py-4 bg-white text-primary-600 font-bold text-lg rounded-full hover:bg-light-50 transition-all duration-300 shadow-lg"
-                >
-                  お問い合わせフォームへ
-                </Link>
-              </motion.div>
-            </ScrollReveal>
+          <div className="border-t border-ink">
+            {services.map((s) => (
+              <Link
+                key={s.en}
+                href={s.href}
+                className="group grid gap-x-8 gap-y-4 border-b border-line py-7 md:grid-cols-[1.25fr_1fr_280px] md:items-center md:py-9"
+              >
+                <div>
+                  <div className="en text-[clamp(36px,5.2vw,68px)] transition-[transform,color] duration-500 ease-sharp group-hover:translate-x-2.5 group-hover:text-brand">
+                    {s.en}
+                  </div>
+                  <h3 className="mb-0 mt-3 text-[13px] font-bold tracking-[0.1em]">{s.ja}</h3>
+                </div>
+                <div>
+                  <p className="m-0 text-mute">{s.desc}</p>
+                  <span className="mt-3.5 inline-flex items-center gap-2.5 text-[13px] font-bold tracking-[0.08em]">
+                    <span className="inline-grid h-9 w-9 place-items-center border border-ink transition-[background,color,transform] duration-300 ease-sharp group-hover:translate-x-1 group-hover:bg-ink group-hover:text-white">
+                      →
+                    </span>
+                    詳しく見る
+                  </span>
+                </div>
+                <DuoImage src={s.image} alt={s.alt} className="aspect-[16/10] w-full" sizes="(min-width: 768px) 280px, 100vw" />
+              </Link>
+            ))}
           </div>
-        </ParallaxSection>
+        </div>
       </section>
-    </div>
+
+      {/* アプローチ */}
+      <section id="approach" className="scroll-mt-[68px] border-b border-line py-[88px] md:py-[120px]">
+        <div className="wrap">
+          <SectionHead en="Approach" ja="私たちのアプローチ" desc="ICT技術を活用した、働き方改革のためのソリューションを提供します。" />
+          <div className="grid gap-8 md:grid-cols-[5fr_7fr] md:items-start md:gap-16">
+            <DuoImage
+              src="/images/approach-work.png"
+              alt="ノートPCで仕事をする社員"
+              caption="WORK STYLE REFORM"
+              className="aspect-[4/5] max-h-[560px] w-full"
+            />
+            <div className="border-t border-ink">
+              {approaches.map((a) => (
+                <Link
+                  key={a.href}
+                  href={a.href}
+                  className="group grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-1.5 border-b border-line py-7"
+                >
+                  <h3 className="m-0 text-[clamp(22px,2.4vw,30px)] font-bold leading-[1.4] tracking-[0.04em] transition-colors group-hover:text-brand">
+                    {a.title}
+                  </h3>
+                  <p className="col-start-1 m-0 text-mute">{a.desc}</p>
+                  <span className="col-start-2 row-span-2 row-start-1 font-display text-[22px] transition-transform duration-500 ease-sharp group-hover:translate-x-1.5">
+                    →
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* お知らせ */}
+      <section className="py-[88px] md:py-[120px]">
+        <div className="wrap">
+          <SectionHead en="News" ja="お知らせ" />
+          <div className="border-t border-ink">
+            {newsItems.slice(0, 3).map((item) => (
+              <Link
+                key={item.id}
+                href={`/news/${item.slug}`}
+                className="group grid grid-cols-[1fr_auto] items-baseline gap-x-6 gap-y-1 border-b border-line py-[22px] md:grid-cols-[120px_120px_1fr_auto]"
+              >
+                <time className="font-mono text-[13px] tracking-[0.06em] text-mute tabular-nums">{item.date}</time>
+                <span className="justify-self-start border border-line px-2 font-mono text-[11px] tracking-[0.1em]">{item.category}</span>
+                <span className="col-span-2 font-medium transition-colors group-hover:text-brand md:col-span-1">{item.title}</span>
+                <span className="hidden md:block">→</span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-7">
+            <Link href="/news" className="btn btn-ghost btn-sm">
+              お知らせ一覧 <span className="arr">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <CtaBand />
+    </>
   )
 }

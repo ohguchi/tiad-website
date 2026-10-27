@@ -1,14 +1,29 @@
 import type { Metadata } from 'next'
-import { Noto_Sans_JP } from 'next/font/google'
+import { Archivo, IBM_Plex_Mono, Zen_Kaku_Gothic_New } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import AnimationWrapper from '@/components/AnimationWrapper'
+import MotionProvider from '@/components/MotionProvider'
 
-const notoSansJP = Noto_Sans_JP({
+// 英字見出し用（幅を変えられる可変フォント）
+const archivo = Archivo({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
-  variable: '--font-noto-sans',
+  axes: ['wdth'],
+  variable: '--font-archivo',
+})
+
+// 本文用
+const zen = Zen_Kaku_Gothic_New({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-zen',
+})
+
+// 日付・ラベル用（等幅）
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-plex-mono',
 })
 
 export const metadata: Metadata = {
@@ -22,13 +37,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja" className="scroll-smooth">
-      <body className={`${notoSansJP.variable} font-sans antialiased bg-white text-light-800`}>
-        <AnimationWrapper>
+    <html lang="ja">
+      <body className={`${archivo.variable} ${zen.variable} ${plexMono.variable}`}>
+        <MotionProvider>
           <Header />
-          <main className="min-h-screen overflow-x-hidden">{children}</main>
+          <main className="overflow-x-hidden">{children}</main>
           <Footer />
-        </AnimationWrapper>
+        </MotionProvider>
       </body>
     </html>
   )
