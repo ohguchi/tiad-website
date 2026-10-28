@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import Hero from '@/components/Hero'
-import Marquee from '@/components/Marquee'
+import Timeline from '@/components/Timeline'
 import InfinityDraw from '@/components/InfinityDraw'
 import SectionHead from '@/components/SectionHead'
-import DuoImage from '@/components/DuoImage'
+import Photo from '@/components/Photo'
 import ScrollReveal from '@/components/ScrollReveal'
 import CtaBand from '@/components/CtaBand'
 import { newsItems } from '@/lib/newsData'
@@ -45,7 +45,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Marquee />
+      <Timeline />
 
       {/* 理念・ミッション */}
       <section className="border-b border-line py-[88px] md:py-[120px]">
@@ -115,7 +115,7 @@ export default function Home() {
                     詳しく見る
                   </span>
                 </div>
-                <DuoImage src={s.image} alt={s.alt} className="aspect-[16/10] w-full" sizes="(min-width: 768px) 280px, 100vw" />
+                <Photo src={s.image} alt={s.alt} className="aspect-[16/10] w-full" sizes="(min-width: 768px) 280px, 100vw" />
               </Link>
             ))}
           </div>
@@ -127,7 +127,7 @@ export default function Home() {
         <div className="wrap">
           <SectionHead en="Approach" ja="私たちのアプローチ" desc="ICT技術を活用した、働き方改革のためのソリューションを提供します。" />
           <div className="grid gap-8 md:grid-cols-[5fr_7fr] md:items-start md:gap-16">
-            <DuoImage
+            <Photo
               src="/images/approach-work.jpg"
               alt="ノートPCで仕事をする社員"
               caption="WORK STYLE REFORM"

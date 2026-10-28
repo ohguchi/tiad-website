@@ -2,7 +2,7 @@ import Link from 'next/link'
 import PageHero from '@/components/PageHero'
 import SectionHead from '@/components/SectionHead'
 import ScrollReveal from '@/components/ScrollReveal'
-import DuoImage from '@/components/DuoImage'
+import Photo from '@/components/Photo'
 import CtaBand from '@/components/CtaBand'
 
 const services = [
@@ -80,7 +80,7 @@ export default function ServicesPage() {
                 ))}
               </dl>
             </div>
-            <DuoImage src={s.image} alt={s.alt} className={`aspect-[4/3] w-full ${i % 2 === 1 ? 'md:order-1' : ''}`} />
+            <Photo src={s.image} alt={s.alt} className={`aspect-[4/3] w-full ${i % 2 === 1 ? 'md:order-1' : ''}`} />
           </div>
         </section>
       ))}

@@ -108,7 +108,7 @@ export default function DayCalendar() {
           </>
         )}
       </button>
-      <span className="font-mono text-[11px] tracking-[0.1em] text-mute">↑ 押すと、次の日へ</span>
+      <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-mute/60">Turn the page</span>
     </div>
   )
 }

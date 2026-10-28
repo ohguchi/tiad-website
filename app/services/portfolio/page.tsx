@@ -37,7 +37,7 @@ export default function PortfolioPage() {
         <div className="wrap">
           <ul className="m-0 list-none border-t border-ink p-0">
             {portfolios.map((p) => (
-              <li key={p.title} className="grid gap-x-12 gap-y-2 border-b border-line py-8 md:grid-cols-[120px_180px_1fr]">
+              <li key={p.title} className="grid gap-x-12 gap-y-2 border-b border-line py-8 md:grid-cols-[120px_180px_1fr] md:items-baseline">
                 <span className="font-mono text-[13px] tracking-[0.06em] text-mute tabular-nums">{p.year}</span>
                 <span className="justify-self-start border border-line px-2 font-mono text-[11px] tracking-[0.1em]">{p.category}</span>
                 <div>
