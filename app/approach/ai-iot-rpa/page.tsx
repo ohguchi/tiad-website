@@ -48,7 +48,8 @@ export default function AIIoTRPAPage() {
         ja="新時代のテクノロジー活用"
         parents={[{ name: 'Approach', href: '/#approach' }]}
         image="/images/approach/ai-iot-rpa.jpg"
-        imageAlt="AI・IoT・RPAのイメージ"
+        imageAlt="工場の設備に取り付けられたセンサー"
+        imageCaption={{ title: 'AI・IoT・RPA', scene: 'Factory — Sensors' }}
       />
 
       {/* イントロ */}

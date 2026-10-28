@@ -89,14 +89,35 @@
   }
 
   /*
-   * 写真を少しだけ淡くして、サイト全体のトーンに馴染ませる。
-   * 色は残すので人物の顔色も自然なまま。差し替え時に加工は不要。
+   * 写真：普段は白黒で、画面の中央あたりに来ると色が戻る（Photo.tsx が data-lit を切り替える）。
+   * マウスを乗せても色が戻る。色は少しだけ淡くして、人物の顔色を自然に保つ。
    */
   .photo-tone {
     @apply relative overflow-hidden bg-paper;
   }
   .photo-tone img {
-    filter: saturate(0.78) contrast(0.96) brightness(1.03);
+    filter: grayscale(1) contrast(1.06);
+    transform: scale(1.03);
+    transition:
+      filter 1.4s cubic-bezier(.7, 0, .2, 1),
+      transform 1.6s cubic-bezier(.7, 0, .2, 1);
+  }
+  .photo-tone[data-lit='true'] img,
+  .group:hover .photo-tone img {
+    filter: grayscale(0) saturate(0.85) contrast(1);
+    transform: scale(1);
+  }
+  /* 四隅のトンボ（撮影・印刷の目印） */
+  .photo-tone::before,
+  .photo-tone::after {
+    content: '';
+    @apply pointer-events-none absolute z-[2] h-3.5 w-3.5;
+  }
+  .photo-tone::before {
+    @apply left-2.5 top-2.5 border-l border-t border-white;
+  }
+  .photo-tone::after {
+    @apply bottom-2.5 right-2.5 border-b border-r border-white;
   }
 }
 

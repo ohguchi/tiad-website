@@ -14,6 +14,7 @@ const services = [
       'VMwareや仮想ルーターの保守・メンテナンスを中心に、データセンターの安定稼働を支えるインフラ保守サービスを提供します。24時間365日の監視体制で、お客様のビジネス継続をサポートします。',
     image: '/images/service-datacenter.jpg',
     alt: 'データセンターのサーバーラック',
+    scene: 'Server room — Rack check',
     features: [
       { title: 'VMware環境保守', desc: '仮想マシンの構築・運用・最適化' },
       { title: '仮想ルーター管理', desc: 'ネットワーク機器の設定・監視' },
@@ -29,6 +30,7 @@ const services = [
       '集合住宅への光ファイバー設備導入により、物件の資産価値向上をご提案します。インターネット環境は今や入居者にとって必須のインフラ。入居率向上と差別化を実現します。',
     image: '/images/service-apartment.jpg',
     alt: '光回線を備えた集合住宅',
+    scene: 'Residence — Blue hour',
     features: [
       { title: '資産価値向上', desc: '高速インターネット完備物件として差別化' },
       { title: '入居者満足度UP', desc: '快適なネット環境で長期入居促進' },
@@ -44,6 +46,7 @@ const services = [
       '中小企業の業務に合わせたアプリケーションをフルスクラッチで作成します。既製品では対応できない独自の業務フローを、お客様専用のシステムで効率化。DX推進を強力にサポートします。',
     image: '/images/service-development.jpg',
     alt: '業務アプリの開発風景',
+    scene: 'Studio — Review session',
     features: [
       { title: 'フルスクラッチ開発', desc: 'お客様専用のオーダーメイドシステム' },
       { title: '業務フロー最適化', desc: '現場の声を反映した使いやすさ' },
@@ -80,7 +83,13 @@ export default function ServicesPage() {
                 ))}
               </dl>
             </div>
-            <Photo src={s.image} alt={s.alt} className={`aspect-[4/3] w-full ${i % 2 === 1 ? 'md:order-1' : ''}`} />
+            <Photo
+              src={s.image}
+              alt={s.alt}
+              className={i % 2 === 1 ? 'md:order-1' : ''}
+              frameClassName="aspect-[4/3] w-full"
+              caption={{ title: s.en, scene: s.scene }}
+            />
           </div>
         </section>
       ))}

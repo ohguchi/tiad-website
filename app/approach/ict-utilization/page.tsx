@@ -48,7 +48,8 @@ export default function ICTUtilizationPage() {
         ja="ICT活用 ― デジタルトランスフォーメーション"
         parents={[{ name: 'Approach', href: '/#approach' }]}
         image="/images/approach/ict-utilization.jpg"
-        imageAlt="ICT活用のイメージ"
+        imageAlt="書類の横でノートPCに入力する手元"
+        imageCaption={{ title: 'ICT', scene: 'Desk — Paper to data' }}
         imagePosition="center 30%"
       />
 

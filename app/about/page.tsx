@@ -104,7 +104,12 @@ export default function AboutPage() {
             desc="ICT技術を活用し、人とテクノロジーの融合による持続可能な成長を支援します。"
           />
           <div className="grid gap-8 md:grid-cols-[5fr_7fr] md:items-start md:gap-16">
-            <Photo src="/images/vision-work.jpg" alt="オフィスで働く人々" className="aspect-[3/2] w-full" />
+            <Photo
+              src="/images/vision-work.jpg"
+              alt="オフィスで話す社員たち"
+              frameClassName="aspect-[3/2] w-full"
+              caption={{ title: 'Team', scene: 'Hallway — Daily talk' }}
+            />
             <ul className="m-0 list-none border-t border-ink p-0">
               {visions.map((v) => (
                 <li key={v.title} className="border-b border-line py-7">
