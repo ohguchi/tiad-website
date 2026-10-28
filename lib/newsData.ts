@@ -33,7 +33,7 @@ export const newsItems: NewsItem[] = [
         date: '2026.06.01',
         category: 'お知らせ',
         slug: '2026-06-vmware',
-        content: '大手通信事業者のデータセンターにてVmwareバージョンアップ業務を受注しました。',
+        content: '大手通信事業者のデータセンターにてVMwareバージョンアップ業務を受注しました。',
     },
     {
         id: 23,
@@ -105,7 +105,7 @@ export const newsItems: NewsItem[] = [
         date: '2022.10.01',
         category: 'お知らせ',
         slug: '2022-10-fiber',
-        content: '大手通信事業者の公営集合住宅向け光サービス更新の申請業務を受注しました',
+        content: '大手通信事業者の公営集合住宅向け光サービス更新の申請業務を受注しました。',
     },
     {
         id: 14,
@@ -145,7 +145,7 @@ export const newsItems: NewsItem[] = [
         date: '2021.02.01',
         category: 'お知らせ',
         slug: '2021-02-base-station',
-        content: '静岡エリアにてキャリア通信基地局の保守業務を受注しました',
+        content: '静岡エリアにてキャリア通信基地局の保守業務を受注しました。',
     },
     {
         id: 1,

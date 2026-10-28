@@ -15,6 +15,7 @@ const services = [
     desc: 'データセンターのサーバー、VM、仮想ルーターの保守。24時間365日の監視体制で、事業の継続を支えます。',
     image: '/images/service-datacenter.jpg',
     alt: 'データセンターのサーバーラック',
+    scene: 'Server room — Rack check',
     href: '/services#datacenter',
   },
   {
@@ -23,6 +24,7 @@ const services = [
     desc: '集合住宅への光ファイバー導入をご提案。入居者の満足度と、物件の資産価値を高めます。',
     image: '/images/service-apartment.jpg',
     alt: '光回線を備えた集合住宅',
+    scene: 'Residence — Blue hour',
     href: '/services#apartment',
   },
   {
@@ -31,6 +33,7 @@ const services = [
     desc: '中小企業向けの業務改善アプリを、フルスクラッチで開発します。現場の手間を一つずつ減らします。',
     image: '/images/service-development.jpg',
     alt: '業務アプリの開発風景',
+    scene: 'Studio — Review session',
     href: '/services#app-development',
   },
 ]
@@ -115,7 +118,13 @@ export default function Home() {
                     詳しく見る
                   </span>
                 </div>
-                <Photo src={s.image} alt={s.alt} className="aspect-[16/10] w-full" sizes="(min-width: 768px) 280px, 100vw" />
+                <Photo
+                  src={s.image}
+                  alt={s.alt}
+                  frameClassName="aspect-[16/10] w-full"
+                  sizes="(min-width: 768px) 280px, 100vw"
+                  caption={{ title: s.en, scene: s.scene }}
+                />
               </Link>
             ))}
           </div>
@@ -130,9 +139,9 @@ export default function Home() {
             <Photo
               src="/images/approach-work.jpg"
               alt="ノートPCで仕事をする社員"
-              caption="WORK STYLE REFORM"
+              caption={{ title: 'Work Style', scene: 'Office — Morning light' }}
               position="68% center"
-              className="aspect-[4/5] max-h-[560px] w-full"
+              frameClassName="aspect-[4/5] max-h-[560px] w-full"
             />
             <div className="border-t border-ink">
               {approaches.map((a) => (

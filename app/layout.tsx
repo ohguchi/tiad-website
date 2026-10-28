@@ -41,7 +41,8 @@ export default function RootLayout({
       <body className={`${archivo.variable} ${zen.variable} ${plexMono.variable}`}>
         <MotionProvider>
           <Header />
-          <main className="overflow-x-hidden">{children}</main>
+          {/* overflow-x-clip：横にはみ出した分は隠すが、hidden と違って sticky（年表の固定）を妨げない */}
+          <main className="overflow-x-clip">{children}</main>
           <Footer />
         </MotionProvider>
       </body>

@@ -35,7 +35,8 @@ export default function WorkStyleReformPage() {
         ja="働き方改革 ― 真の生産性向上へ"
         parents={[{ name: 'Approach', href: '/#approach' }]}
         image="/images/approach/work-reform.jpg"
-        imageAlt="働き方改革のイメージ"
+        imageAlt="ホワイトボードの前で打ち合わせをするチーム"
+        imageCaption={{ title: 'Work Style', scene: 'Office — Standing meeting' }}
       />
 
       {/* イントロ */}
