@@ -37,9 +37,6 @@ const config: Config = {
         sharp: 'cubic-bezier(.7, 0, .2, 1)',
       },
       keyframes: {
-        marquee: {
-          to: { transform: 'translateX(-50%)' },
-        },
         // 日めくりのページが上に破れていく動き
         tear: {
           '0%': { transform: 'rotateX(0) translateY(0)', opacity: '1' },
@@ -48,7 +45,6 @@ const config: Config = {
         },
       },
       animation: {
-        marquee: 'marquee 48s linear infinite',
         tear: 'tear .75s cubic-bezier(.7, 0, .2, 1) forwards',
       },
     },

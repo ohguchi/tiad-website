@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
 
-interface DuoImageProps {
+interface PhotoProps {
   src: string
   alt: string
   className?: string
@@ -20,8 +20,8 @@ const reveal = {
   show: { clipPath: 'inset(0 0% 0 0)' },
 }
 
-// 紺のモノトーンに揃えた画像。画面に入ると左から四角く開いて現れる
-export default function DuoImage({
+// サイトのトーンに馴染ませた写真。画面に入ると左から四角く開いて現れる
+export default function Photo({
   src,
   alt,
   className = '',
@@ -29,7 +29,7 @@ export default function DuoImage({
   priority = false,
   caption,
   position = 'center',
-}: DuoImageProps) {
+}: PhotoProps) {
   const reduce = useReducedMotion()
 
   return (
@@ -40,7 +40,7 @@ export default function DuoImage({
       viewport={{ once: true, margin: '-10%' }}
     >
       <motion.div
-        className="duotone absolute inset-0"
+        className="photo-tone absolute inset-0"
         variants={reveal}
         transition={{ duration: 1.1, ease: [0.7, 0, 0.2, 1] }}
       >

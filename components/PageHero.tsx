@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import DuoImage from './DuoImage'
+import Photo from './Photo'
 
 interface PageHeroProps {
   en: string
@@ -43,7 +43,7 @@ export default function PageHero({ en, ja, lead, image, imageAlt = '', imagePosi
 
       {image && (
         <div className="wrap pb-14 md:pb-20">
-          <DuoImage src={image} alt={imageAlt} position={imagePosition} priority className="aspect-[16/9] w-full md:aspect-[21/8]" sizes="100vw" />
+          <Photo src={image} alt={imageAlt} position={imagePosition} priority className="aspect-[16/9] w-full md:aspect-[21/8]" sizes="100vw" />
         </div>
       )}
     </section>

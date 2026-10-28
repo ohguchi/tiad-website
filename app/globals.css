@@ -89,28 +89,14 @@
   }
 
   /*
-   * 画像を紺のモノトーンに揃える。
-   * どんな画像を入れても同じトーンになるので、差し替え時に加工は不要。
+   * 写真を少しだけ淡くして、サイト全体のトーンに馴染ませる。
+   * 色は残すので人物の顔色も自然なまま。差し替え時に加工は不要。
    */
-  .duotone {
-    @apply relative overflow-hidden bg-ink;
-    isolation: isolate;
+  .photo-tone {
+    @apply relative overflow-hidden bg-paper;
   }
-  .duotone img {
-    filter: grayscale(1) contrast(1.12) brightness(1.04);
-  }
-  /* 色付けはロゴのグラデーションの中間色（紫に寄りすぎない青） */
-  .duotone::after {
-    content: '';
-    @apply pointer-events-none absolute inset-0;
-    background: #2a4fa0;
-    mix-blend-mode: color;
-  }
-
-  /* 英字の白抜き（マーキー用） */
-  .text-outline {
-    color: transparent;
-    -webkit-text-stroke: 1px theme('colors.ink');
+  .photo-tone img {
+    filter: saturate(0.78) contrast(0.96) brightness(1.03);
   }
 }
 
