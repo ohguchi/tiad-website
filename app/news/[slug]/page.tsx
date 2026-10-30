@@ -70,6 +70,13 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
           <p className="eyebrow m-0 md:pt-1.5">Article</p>
           <div className="max-w-[40em]">
             <p className="m-0 whitespace-pre-wrap text-[17px] leading-[2.1]">{newsItem.content}</p>
+            {newsItem.link && (
+              <div className="mt-10">
+                <Link href={newsItem.link.href} className="btn">
+                  {newsItem.link.label} <span className="arr">→</span>
+                </Link>
+              </div>
+            )}
 
             {/* 前後の記事 */}
             <div className="mt-16 grid border-t border-ink sm:grid-cols-2">
