@@ -56,6 +56,16 @@ export const newsItems: NewsItem[] = [
         content: 'VMware ESXiのアップグレード業務を受注しました。',
     },
     {
+        id: 28,
+        title: '自社サービス「NEXUS」の提供を開始しました',
+        date: '2025.10.01',
+        category: 'お知らせ',
+        slug: '2025-10-nexus',
+        content:
+            '現場から経理まで、会社の業務をひとつにつなぐ基幹システム「NEXUS」の提供を開始しました。\n\n工程管理・従業員管理・勤怠管理・日報作成/経費精算・経理/会計の5つの業務を、ひとつのデータベースで結びます。現場で入力した日報や打刻が、そのまま原価・給与・仕訳にまで届くため、部署ごとの転記や二重入力が不要になります。',
+        link: { href: '/services/portfolio/nexus', label: 'NEXUSの詳細を見る' },
+    },
+    {
         id: 22,
         title: 'データセンターのVM移行業務を受注しました',
         date: '2025.10.01',

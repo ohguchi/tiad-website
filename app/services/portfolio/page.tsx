@@ -1,8 +1,29 @@
 import Link from 'next/link'
 import PageHero from '@/components/PageHero'
 import LinkDiagram from '@/components/LinkDiagram'
+import NexusDiagram from '@/components/NexusDiagram'
 import CtaBand from '@/components/CtaBand'
 import type { Metadata } from 'next'
+
+// 特集する自社サービス（上から順に表示）
+const featured = [
+  {
+    name: 'NEXUS',
+    release: '2025.10',
+    tagline: '現場から経理まで、会社の業務をひとつにつなぐ基幹システム',
+    lead: '工程管理・従業員管理・勤怠管理・日報作成/経費精算・経理/会計を、ひとつのデータベースで結びます。現場の入力が、原価・給与・仕訳までそのまま届きます。',
+    href: '/services/portfolio/nexus',
+    diagram: <NexusDiagram />,
+  },
+  {
+    name: 'LINK',
+    release: '2026.02',
+    tagline: '営業・バックヤード・エンドユーザーをつなぐ業務Webアプリ',
+    lead: '営業が登録した案件を軸に、顧客管理、現地イベントの予約・アンケート、Web問い合わせ・コールバック予約、バックヤードでの履歴・タスク管理までをひとつにつなぎます。',
+    href: '/services/portfolio/link',
+    diagram: <LinkDiagram />,
+  },
+]
 
 // 実績の一覧（新しい年が上。年は該当するお知らせの年。継続案件は最上段）
 const portfolios = [
@@ -55,7 +76,7 @@ const portfolios = [
 export const metadata: Metadata = {
   title: '実績',
   description:
-    'TiAD合同会社の2019年からの受注・提供実績。自社サービス「LINK」の提供、データセンター保守、ネットワーク構築、ソフトウェア開発など。',
+    'TiAD合同会社の2019年からの受注・提供実績。自社サービス「NEXUS」「LINK」の提供、データセンター保守、ネットワーク構築、ソフトウェア開発など。',
   alternates: { canonical: '/services/portfolio' },
 }
 
@@ -64,29 +85,27 @@ export default function PortfolioPage() {
     <>
       <PageHero en="Works" ja="制作実績" parents={[{ name: 'Service', href: '/services' }]} />
 
-      {/* 特集：業務Webアプリ「LINK」 */}
-      <section className="border-b border-line bg-paper py-[88px] md:py-[120px]">
-        <div className="wrap">
-          <div className="mb-12 grid gap-8 md:mb-16 md:grid-cols-[1fr_auto] md:items-end">
-            <div>
-              <p className="eyebrow m-0 mb-4">Featured — 自社サービス / 2026.02 提供開始</p>
-              <h2 className="m-0">
-                <span className="en block text-[clamp(72px,14vw,200px)]">LINK</span>
-                <span className="mt-5 block text-xl font-bold tracking-[0.06em] md:text-2xl">
-                  営業・バックヤード・エンドユーザーをつなぐ業務Webアプリ
-                </span>
-              </h2>
-              <p className="mb-0 mt-5 max-w-[40em] text-mute">
-                営業が登録した案件を軸に、顧客管理、現地イベントの予約・アンケート、Web問い合わせ・コールバック予約、バックヤードでの履歴・タスク管理までをひとつにつなぎます。
-              </p>
+      {/* 特集：自社サービス（NEXUS・LINK） */}
+      {featured.map((f) => (
+        <section key={f.name} className="border-b border-line bg-paper py-[88px] md:py-[120px]">
+          <div className="wrap">
+            <div className="mb-12 grid gap-8 md:mb-16 md:grid-cols-[1fr_auto] md:items-end">
+              <div>
+                <p className="eyebrow m-0 mb-4">Featured — 自社サービス / {f.release} 提供開始</p>
+                <h2 className="m-0">
+                  <span className="en block text-[clamp(72px,14vw,200px)]">{f.name}</span>
+                  <span className="mt-5 block text-xl font-bold tracking-[0.06em] md:text-2xl">{f.tagline}</span>
+                </h2>
+                <p className="mb-0 mt-5 max-w-[40em] text-mute">{f.lead}</p>
+              </div>
+              <Link href={f.href} className="btn justify-self-start">
+                {f.name}の詳細を見る <span className="arr">→</span>
+              </Link>
             </div>
-            <Link href="/services/portfolio/link" className="btn justify-self-start">
-              LINKの詳細を見る <span className="arr">→</span>
-            </Link>
+            {f.diagram}
           </div>
-          <LinkDiagram />
-        </div>
-      </section>
+        </section>
+      ))}
 
       <section className="py-[88px] md:py-[120px]">
         <div className="wrap">
