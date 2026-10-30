@@ -10,6 +10,7 @@ const staticPaths = [
   '/services',
   '/services/portfolio',
   '/services/portfolio/link',
+  '/services/portfolio/nexus',
   '/news',
   '/contact',
   '/privacy-policy',
