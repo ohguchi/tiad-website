@@ -1,32 +1,61 @@
 import PageHero from '@/components/PageHero'
 import CtaBand from '@/components/CtaBand'
+import type { Metadata } from 'next'
 
+// 実績の一覧（新しい年が上。年は該当するお知らせの年。継続案件は最上段）
 const portfolios = [
+  // 継続中の「2019–」は最上段に置く
+  {
+    title: 'データセンターのVM移行・仮想ルーター切替・FW切替',
+    description:
+      '大手通信事業者のデータセンターで、2019年から継続して受注。VMware ESXiのアップグレード、ネットワーク監視機器やVLANの切替も含む',
+    category: 'インフラ保守',
+    year: '2019–',
+  },
+  {
+    title: '公営集合住宅向け光サービス更新の申請',
+    description: '大手通信事業者の公営集合住宅向け光サービス更新に伴う申請業務',
+    category: '申請業務',
+    year: '2022',
+  },
+  {
+    title: '静岡エリアの通信基地局保守',
+    description: 'キャリア通信基地局の保守業務',
+    category: 'インフラ保守',
+    year: '2021',
+  },
   {
     title: 'コールセンター部門の立ち上げ',
-    description: 'コールセンター業務の効率化と顧客対応品質向上のためのシステム構築',
-    category: 'システム開発',
-    year: '2024',
+    description: '大手通信会社のインターネット開通サポート。調査・折衝を専門スタッフが運用',
+    category: '業務立ち上げ',
+    year: '2021',
   },
   {
     title: '2拠点間IPsec VPNの提供',
-    description: 'セキュアな拠点間通信を実現するVPNネットワークの構築',
+    description: 'オンプレミスサーバー利用企業の新拠点展開に合わせ、設計から運用保守まで一元対応',
     category: 'ネットワーク構築',
-    year: '2024',
+    year: '2020',
   },
   {
-    title: 'ソフトウェア販売開始',
-    description: '業務効率化ソフトウェアの開発と販売開始',
+    title: '業務用ソフトウェア29台の一斉入替',
+    description: '名古屋市守山区の水道工事会社。業務を止めない入替計画と実施',
+    category: '導入支援',
+    year: '2020',
+  },
+  {
+    title: '中小企業向けソフトウェアのリリース',
+    description: '主要機能をパッケージ化し、業界特有のルールを事前に適用できる業務支援ソフトウェア',
     category: 'ソフトウェア開発',
-    year: '2024',
-  },
-  {
-    title: '新規案件受注',
-    description: '複数の企業様から新規案件を承り、システム構築を実施',
-    category: 'システム開発',
-    year: '2024',
+    year: '2019',
   },
 ]
+
+export const metadata: Metadata = {
+  title: '実績',
+  description:
+    'TiAD合同会社の2019年からの受注・提供実績。データセンター保守、ネットワーク構築、ソフトウェア開発など。',
+  alternates: { canonical: '/services/portfolio' },
+}
 
 export default function PortfolioPage() {
   return (

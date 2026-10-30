@@ -1,12 +1,27 @@
-'use client'
-
-import { notFound, useParams } from 'next/navigation'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getNewsItemBySlug, newsItems } from '@/lib/newsData'
+import JsonLd from '@/components/JsonLd'
+import { getAllNewsSlugs, getNewsItemBySlug, newsItems } from '@/lib/newsData'
 
-export default function NewsDetailPage() {
-  const params = useParams()
-  const slug = params.slug as string
+// 全記事を静的に生成する
+export function generateStaticParams() {
+  return getAllNewsSlugs().map((slug) => ({ slug }))
+}
+
+// 記事ごとの title / description を自動生成する
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const item = getNewsItemBySlug(params.slug)
+  if (!item) return { title: 'ページが見つかりません', robots: { index: false } }
+  return {
+    title: `${item.title}（${item.date}）`,
+    description: item.content.replace(/\s+/g, ' ').slice(0, 80),
+    alternates: { canonical: `/news/${item.slug}` },
+  }
+}
+
+export default function NewsDetailPage({ params }: { params: { slug: string } }) {
+  const slug = params.slug
   const newsItem = getNewsItemBySlug(slug)
 
   if (!newsItem) {
@@ -18,8 +33,19 @@ export default function NewsDetailPage() {
   const prev = currentIndex > 0 ? newsItems[currentIndex - 1] : null
   const next = currentIndex < newsItems.length - 1 ? newsItems[currentIndex + 1] : null
 
+  // 記事の構造化データ（日付は YYYY.MM.DD を YYYY-MM-DD にして渡す）
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: newsItem.title,
+    datePublished: newsItem.date.replace(/\./g, '-'),
+    mainEntityOfPage: `https://tiad.ai/news/${newsItem.slug}`,
+    publisher: { '@type': 'Organization', name: 'TiAD合同会社', url: 'https://tiad.ai', logo: { '@type': 'ImageObject', url: 'https://tiad.ai/images/logo.png' } },
+  }
+
   return (
     <>
+      <JsonLd data={articleJsonLd} />
       <section className="border-b border-line">
         <div className="wrap pb-14 pt-12 md:pb-20 md:pt-16">
           <nav aria-label="パンくずリスト" className="eyebrow mb-10 flex flex-wrap gap-x-3">

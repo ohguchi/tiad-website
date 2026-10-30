@@ -4,6 +4,7 @@ import SectionHead from '@/components/SectionHead'
 import ScrollReveal from '@/components/ScrollReveal'
 import Photo from '@/components/Photo'
 import CtaBand from '@/components/CtaBand'
+import type { Metadata } from 'next'
 
 const services = [
   {
@@ -62,15 +63,23 @@ const reasons = [
   { title: 'DX推進パートナー', desc: '業務改善・生産性向上を実現するDX推進のパートナーとして伴走します。' },
 ]
 
+export const metadata: Metadata = {
+  title: '事業案内（データセンター保守・回線導入・業務アプリ開発）',
+  description:
+    'TiAD合同会社の3つの事業をご紹介します。データセンターのサーバー保守、集合住宅向け回線導入、中小企業向け業務アプリ開発。名古屋を拠点に全国のデータセンター案件に対応しています。',
+  alternates: { canonical: '/services' },
+}
+
 export default function ServicesPage() {
   return (
     <>
-      <PageHero en="Service" ja="事業案内" lead="人とICTの共創により、ビジネスの生産性を革命的に向上させる。私たちは3つの事業でお客様に貢献します。" />
+      <PageHero en="Service" ja="事業案内" lead="名古屋を拠点に、データセンターの保守から中小企業の業務改善まで。人とICTの共創により、ビジネスの生産性を革命的に向上させる。私たちは3つの事業でお客様に貢献します。" />
 
       {services.map((s, i) => (
         <section key={s.id} id={s.id} className="scroll-mt-[68px] border-b border-line py-[88px] md:py-[120px]">
           <div className="wrap grid gap-10 md:grid-cols-2 md:items-start md:gap-16">
             <div className={i % 2 === 1 ? 'md:order-2' : ''}>
+              <p className="eyebrow m-0 mb-4 tabular-nums">{String(i + 1).padStart(2, '0')}</p>
               <p className="en m-0 text-[clamp(40px,6vw,80px)]">{s.en}</p>
               <h2 className="mb-0 mt-5 text-xl font-bold tracking-[0.04em] md:text-2xl">{s.title}</h2>
               <p className="mb-0 mt-5 text-mute">{s.description}</p>
@@ -97,7 +106,7 @@ export default function ServicesPage() {
       {/* 選ばれる理由 */}
       <section className="border-b border-line bg-paper py-[88px] md:py-[120px]">
         <div className="wrap">
-          <SectionHead en="Why TiAD" ja="なぜTiADを選ぶのか" />
+          <SectionHead index="04" en="Why TiAD" ja="なぜTiADを選ぶのか" />
           <div className="grid border-t border-ink md:grid-cols-3">
             {reasons.map((r, i) => (
               <ScrollReveal

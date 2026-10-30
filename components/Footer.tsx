@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import LocalClock from './LocalClock'
 
 const links = [
   { name: '会社概要', href: '/about' },
@@ -57,7 +58,10 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap justify-between gap-x-6 gap-y-2 border-t border-line pt-5 md:col-span-3">
-          <span className="eyebrow">愛知県名古屋市 ／ info@tiad.ai</span>
+          <span className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <span className="eyebrow">〒462-0805 愛知県名古屋市北区八龍町1丁目77番地 ／ info@tiad.ai</span>
+            <LocalClock />
+          </span>
           <span className="eyebrow">
             <Link href="/privacy-policy" className="link-line mr-6">
               Privacy Policy

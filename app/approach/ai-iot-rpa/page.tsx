@@ -3,6 +3,7 @@ import PageHero from '@/components/PageHero'
 import SectionHead from '@/components/SectionHead'
 import ScrollReveal from '@/components/ScrollReveal'
 import CtaBand from '@/components/CtaBand'
+import type { Metadata } from 'next'
 
 const technologies = [
   {
@@ -39,6 +40,13 @@ const technologies = [
     ],
   },
 ]
+
+export const metadata: Metadata = {
+  title: 'AI・IoT・RPAの活用',
+  description:
+    '中小企業向けの自動化支援。AI・IoT・RPAなど新しいテクノロジーで、繰り返し作業を自動化します。',
+  alternates: { canonical: '/approach/ai-iot-rpa' },
+}
 
 export default function AIIoTRPAPage() {
   return (

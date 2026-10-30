@@ -2,6 +2,7 @@ import PageHero from '@/components/PageHero'
 import SectionHead from '@/components/SectionHead'
 import ScrollReveal from '@/components/ScrollReveal'
 import CtaBand from '@/components/CtaBand'
+import type { Metadata } from 'next'
 
 const issues = [
   {
@@ -26,6 +27,13 @@ const technologies = [
   { en: 'IoT', desc: 'デバイス連携によるリアルタイムデータ活用' },
   { en: 'RPA', desc: '定型業務の自動化による効率化' },
 ]
+
+export const metadata: Metadata = {
+  title: '働き方改革',
+  description:
+    '時間ではなく成果で働ける仕組みづくりを支援します。',
+  alternates: { canonical: '/approach/work-style-reform' },
+}
 
 export default function WorkStyleReformPage() {
   return (

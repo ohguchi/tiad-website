@@ -2,6 +2,7 @@ import Link from 'next/link'
 import PageHero from '@/components/PageHero'
 import CtaBand from '@/components/CtaBand'
 import { newsItems, NewsItem } from '@/lib/newsData'
+import type { Metadata } from 'next'
 
 // 年ごとにニュースをグルーピングする関数
 function groupNewsByYear(items: NewsItem[]): Record<string, NewsItem[]> {
@@ -13,6 +14,13 @@ function groupNewsByYear(items: NewsItem[]): Record<string, NewsItem[]> {
     groups[year].push(item)
     return groups
   }, {} as Record<string, NewsItem[]>)
+}
+
+export const metadata: Metadata = {
+  title: 'お知らせ',
+  description:
+    'TiAD合同会社の受注・サービスのお知らせ一覧です。',
+  alternates: { canonical: '/news' },
 }
 
 export default function NewsPage() {
