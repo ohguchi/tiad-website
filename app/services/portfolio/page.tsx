@@ -2,11 +2,20 @@ import Link from 'next/link'
 import PageHero from '@/components/PageHero'
 import LinkDiagram from '@/components/LinkDiagram'
 import NexusDiagram from '@/components/NexusDiagram'
+import IrisDiagram from '@/components/IrisDiagram'
 import CtaBand from '@/components/CtaBand'
 import type { Metadata } from 'next'
 
 // 特集する自社サービス（上から順に表示）
 const featured = [
+  {
+    name: 'IRIS',
+    release: '2026.11',
+    tagline: '店舗のInstagram投稿を、AIの目で評価・共有するサービス',
+    lead: '各店舗が投稿した写真と本文を、本部の規定に照らしてAIが加点・減点で評価します。良い投稿を他店舗へ横展開し、店舗PRの品質とブランドの見せ方をそろえます。',
+    href: '/services/portfolio/iris',
+    diagram: <IrisDiagram />,
+  },
   {
     name: 'NEXUS',
     release: '2025.10',
@@ -76,7 +85,7 @@ const portfolios = [
 export const metadata: Metadata = {
   title: '実績',
   description:
-    'TiAD合同会社の2019年からの受注・提供実績。自社サービス「NEXUS」「LINK」の提供、データセンター保守、ネットワーク構築、ソフトウェア開発など。',
+    'TiAD合同会社の2019年からの受注・提供実績。自社サービス「IRIS」「NEXUS」「LINK」の提供、データセンター保守、ネットワーク構築、ソフトウェア開発など。',
   alternates: { canonical: '/services/portfolio' },
 }
 
@@ -85,7 +94,7 @@ export default function PortfolioPage() {
     <>
       <PageHero en="Works" ja="制作実績" parents={[{ name: 'Service', href: '/services' }]} />
 
-      {/* 特集：自社サービス（NEXUS・LINK） */}
+      {/* 特集：自社サービス（IRIS・NEXUS・LINK） */}
       {featured.map((f) => (
         <section key={f.name} className="border-b border-line bg-paper py-[88px] md:py-[120px]">
           <div className="wrap">

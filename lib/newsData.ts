@@ -14,6 +14,16 @@ export interface NewsItem {
 // 新しいお知らせを追加する場合は、このリストの先頭に追加してください
 export const newsItems: NewsItem[] = [
     {
+        id: 29,
+        title: '自社サービス「IRIS」の提供を開始しました',
+        date: '2026.11.01',
+        category: 'お知らせ',
+        slug: '2026-11-iris',
+        content:
+            '複数の店舗を展開する本部向けに、店舗のInstagram投稿をAIで評価するサービス「IRIS」の提供を開始しました。\n\n各店舗が投稿した写真と本文を、本部が定めた規定に照らしてAIが評価します。違反を見つけるだけでなく、推奨事項を満たした投稿を加点で評価し、良い投稿を他店舗へ横展開することで、店舗PRの品質向上とブランドの見せ方の共通化を支えます。',
+        link: { href: '/services/portfolio/iris', label: 'IRISの詳細を見る' },
+    },
+    {
         id: 26,
         title: 'データセンターのFW切替業務を受注しました',
         date: '2026.08.01',
