@@ -55,7 +55,7 @@ const portfolios = [
 export const metadata: Metadata = {
   title: '実績',
   description:
-    'TiAD合同会社の2019年からの受注・提供実績。業務Webアプリ「LINK」の開発、データセンター保守、ネットワーク構築、ソフトウェア開発など。',
+    'TiAD合同会社の2019年からの受注・提供実績。自社サービス「LINK」の提供、データセンター保守、ネットワーク構築、ソフトウェア開発など。',
   alternates: { canonical: '/services/portfolio' },
 }
 
@@ -69,7 +69,7 @@ export default function PortfolioPage() {
         <div className="wrap">
           <div className="mb-12 grid gap-8 md:mb-16 md:grid-cols-[1fr_auto] md:items-end">
             <div>
-              <p className="eyebrow m-0 mb-4">Featured — Webアプリケーション開発 / 2026</p>
+              <p className="eyebrow m-0 mb-4">Featured — 自社サービス / 2026.02 提供開始</p>
               <h2 className="m-0">
                 <span className="en block text-[clamp(72px,14vw,200px)]">LINK</span>
                 <span className="mt-5 block text-xl font-bold tracking-[0.06em] md:text-2xl">

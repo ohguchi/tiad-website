@@ -3,15 +3,16 @@ import PageHero from '@/components/PageHero'
 import SectionHead from '@/components/SectionHead'
 import ScrollReveal from '@/components/ScrollReveal'
 import LinkDiagram from '@/components/LinkDiagram'
+import LinkScreens from '@/components/LinkScreens'
 import CtaBand from '@/components/CtaBand'
 import type { Metadata } from 'next'
 
 // 実績の概要
 const overview = [
   { label: 'Service', value: 'LINK' },
-  { label: 'Category', value: 'Webアプリケーション開発' },
+  { label: 'Category', value: '自社サービス（業務Webアプリ）' },
   { label: 'Users', value: '営業・バックヤード（コールセンター）・エンドユーザー' },
-  { label: 'Year', value: '2026' },
+  { label: 'Release', value: '2026.02 提供開始' },
 ]
 
 // 使う人ごとの機能
@@ -58,12 +59,10 @@ const flow = [
   { step: '履歴・タスク管理', who: 'バックヤード' },
 ]
 
-const stack = ['Next.js', 'TypeScript', 'Material UI', 'Supabase（PostgreSQL）', 'Vercel']
-
 export const metadata: Metadata = {
   title: 'LINK｜営業・バックヤード・エンドユーザーをつなぐ業務Webアプリ',
   description:
-    'TiAD合同会社が開発した業務Webアプリ「LINK」。営業の案件・顧客管理、エンドユーザーのイベント予約・アンケート・Web問い合わせ・コールバック予約、バックヤードの履歴・タスク管理をひとつにつなぎます。',
+    'TiAD合同会社の自社サービス、業務Webアプリ「LINK」。営業の案件・顧客管理、エンドユーザーのイベント予約・アンケート・Web問い合わせ・コールバック予約、バックヤードの履歴・タスク管理をひとつにつなぎます。',
   alternates: { canonical: '/services/portfolio/link' },
 }
 
@@ -73,7 +72,7 @@ export default function LinkCasePage() {
       <PageHero
         en="LINK"
         ja="営業・バックヤード・エンドユーザーをつなぐ業務Webアプリ"
-        lead="案件を登録する営業、お客様対応を担うバックヤード（コールセンター）、そしてサービスを利用するエンドユーザー。これまで電話やメール、表計算ソフトに分かれていた情報を、案件を軸にひとつにつなぐWebアプリケーションです。"
+        lead="案件を登録する営業、お客様対応を担うバックヤード（コールセンター）、そしてサービスを利用するエンドユーザー。これまで電話やメール、表計算ソフトに分かれていた情報を、案件を軸にひとつにつなぐ、TiADの自社サービスです。2026年2月より提供を開始しました。"
         parents={[
           { name: 'Service', href: '/services' },
           { name: 'Works', href: '/services/portfolio' },
@@ -109,10 +108,20 @@ export default function LinkCasePage() {
         </div>
       </section>
 
-      {/* 機能 */}
+      {/* 画面イメージ */}
       <section className="border-b border-line py-[88px] md:py-[120px]">
         <div className="wrap">
-          <SectionHead index="02" en="Features" ja="使う人ごとの機能" />
+          <SectionHead index="02" en="Screens" ja="画面イメージ" desc="営業・エンドユーザー・バックヤード、それぞれが使う画面の一例です。" />
+          <ScrollReveal>
+            <LinkScreens />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* 機能 */}
+      <section className="border-b border-line bg-paper py-[88px] md:py-[120px]">
+        <div className="wrap">
+          <SectionHead index="03" en="Features" ja="使う人ごとの機能" />
           <div className="grid gap-16 md:gap-24">
             {roles.map((r, i) => (
               <ScrollReveal key={r.en} className="grid gap-8 border-t border-ink pt-8 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16">
@@ -139,7 +148,7 @@ export default function LinkCasePage() {
       {/* 情報の流れ */}
       <section className="border-b border-line bg-ink py-[88px] text-white md:py-[120px]">
         <div className="wrap">
-          <SectionHead index="03" en="Flow" ja="情報の流れ" light desc="案件の登録から、お客様とのやり取り、その後の対応まで。ひとつの流れとして記録が残ります。" />
+          <SectionHead index="04" en="Flow" ja="情報の流れ" light desc="案件の登録から、お客様とのやり取り、その後の対応まで。ひとつの流れとして記録が残ります。" />
           <ol className="m-0 grid list-none border-t border-white/25 p-0 md:grid-cols-5">
             {flow.map((f, i) => (
               <li key={f.step} className="border-b border-white/25 py-6 md:border-b-0 md:border-r md:px-5 md:first:pl-0 md:last:border-r-0">
@@ -154,26 +163,19 @@ export default function LinkCasePage() {
         </div>
       </section>
 
-      {/* 技術 */}
-      <section className="py-[88px] md:py-[120px]">
-        <div className="wrap">
-          <SectionHead index="04" en="Technology" ja="使用技術" />
-          <ul className="m-0 flex list-none flex-wrap gap-3 p-0">
-            {stack.map((t) => (
-              <li key={t} className="border border-ink px-4 py-2 font-mono text-[13px] tracking-[0.06em]">
-                {t}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-12">
-            <Link href="/services/portfolio" className="btn btn-ghost">
-              制作実績一覧へ戻る <span className="arr">→</span>
-            </Link>
-          </div>
+      {/* 戻る */}
+      <section className="py-16 md:py-20">
+        <div className="wrap flex flex-wrap gap-4">
+          <Link href="/services/portfolio" className="btn btn-ghost">
+            制作実績一覧へ戻る <span className="arr">→</span>
+          </Link>
+          <Link href="/news/2026-02-link" className="btn btn-ghost">
+            提供開始のお知らせ <span className="arr">→</span>
+          </Link>
         </div>
       </section>
 
-      <CtaBand lead="LINKのような業務Webアプリの開発や、自社の業務に合わせたシステムのご相談はお気軽にお問い合わせください。" />
+      <CtaBand lead="LINKの導入や、自社の業務に合わせたシステムのご相談はお気軽にお問い合わせください。" />
     </>
   )
 }

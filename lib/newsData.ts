@@ -6,6 +6,8 @@ export interface NewsItem {
     category: string
     slug: string
     content: string
+    // 記事の最後に置くリンク（関連ページがあるとき）
+    link?: { href: string; label: string }
 }
 
 // ニュースデータ
@@ -34,6 +36,16 @@ export const newsItems: NewsItem[] = [
         category: 'お知らせ',
         slug: '2026-06-vmware',
         content: '大手通信事業者のデータセンターにてVMwareバージョンアップ業務を受注しました。',
+    },
+    {
+        id: 27,
+        title: '自社サービス「LINK」の提供を開始しました',
+        date: '2026.02.01',
+        category: 'お知らせ',
+        slug: '2026-02-link',
+        content:
+            '営業・バックヤード（コールセンター）・エンドユーザーの3者をつなぐ業務Webアプリ「LINK」の提供を開始しました。\n\n営業が登録した案件を軸に、案件ごとの顧客管理、現地イベントの予約受付・アンケート、Web問い合わせ・コールバック予約、バックヤードでの情報・履歴・タスク管理までをひとつのサービスで行えます。',
+        link: { href: '/services/portfolio/link', label: 'LINKの詳細を見る' },
     },
     {
         id: 23,

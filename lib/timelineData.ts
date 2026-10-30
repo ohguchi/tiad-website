@@ -26,5 +26,6 @@ export const timelineEvents: TimelineEvent[] = [
   { date: '2023.06', lines: ['クラウド仮想ルーター', '切替業務を受注'] },
   { date: '2024.06', lines: ['データセンターの', 'VM移行業務を受注'] },
   { date: '2025.06', lines: ['VMware ESXiの', 'アップグレード業務を受注'] },
+  { date: '2026.02', lines: ['自社サービス', '「LINK」を提供開始'] },
   { date: '2026.08', lines: ['データセンターの', 'FW切替業務を受注'] },
 ]
