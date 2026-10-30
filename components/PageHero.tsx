@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Photo from './Photo'
+import JsonLd from './JsonLd'
 
 interface PageHeroProps {
   en: string
@@ -17,8 +18,20 @@ interface PageHeroProps {
 
 // 下層ページ共通のページ見出し
 export default function PageHero({ en, ja, lead, image, imageAlt = '', imagePosition, imageCaption, parents = [] }: PageHeroProps) {
+  // パンくずの構造化データ（Home → 親ページ → 現在のページ）
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tiad.ai/' },
+      ...parents.map((p, i) => ({ '@type': 'ListItem', position: i + 2, name: p.name, item: `https://tiad.ai${p.href}` })),
+      { '@type': 'ListItem', position: parents.length + 2, name: en },
+    ],
+  }
+
   return (
     <section className="border-b border-line">
+      <JsonLd data={breadcrumbJsonLd} />
       <div className="wrap pb-14 pt-12 md:pb-20 md:pt-16">
         <nav aria-label="パンくずリスト" className="eyebrow mb-8 flex flex-wrap gap-x-3 gap-y-1">
           <Link href="/" className="link-line hover:text-ink">

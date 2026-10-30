@@ -2,6 +2,7 @@ import PageHero from '@/components/PageHero'
 import SectionHead from '@/components/SectionHead'
 import ScrollReveal from '@/components/ScrollReveal'
 import CtaBand from '@/components/CtaBand'
+import type { Metadata } from 'next'
 
 const reasons = [
   { title: '市場の変化', desc: '顧客のニーズや競争環境が急速に変化する中、デジタル技術による迅速な対応が求められています' },
@@ -39,6 +40,13 @@ const process = [
   { title: '導入・実装', desc: 'アジャイル手法により、段階的にシステムを構築・導入します' },
   { title: '運用・改善', desc: '継続的なモニタリングと改善により、効果を最大化します' },
 ]
+
+export const metadata: Metadata = {
+  title: 'ICT活用',
+  description:
+    'クラウドとデータで会社の動きを見える化。ICT活用による業務改善をご提案します。',
+  alternates: { canonical: '/approach/ict-utilization' },
+}
 
 export default function ICTUtilizationPage() {
   return (

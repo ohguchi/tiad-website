@@ -4,13 +4,14 @@ import ScrollReveal from '@/components/ScrollReveal'
 import InfinityDraw from '@/components/InfinityDraw'
 import Photo from '@/components/Photo'
 import CtaBand from '@/components/CtaBand'
+import type { Metadata } from 'next'
 
 const companyInfo = [
   { label: '会社名', value: 'TiAD合同会社（ティアド合同会社）' },
   { label: '英文名', value: 'TiAD.LLC' },
   { label: '代表者', value: '代表社員 大口 貴正' },
   { label: '設立', value: '2019年4月' },
-  { label: '所在地', value: '愛知県名古屋市' },
+  { label: '所在地', value: '愛知県名古屋市北区八龍町1丁目77番地' },
   { label: '事業内容', value: 'ICTコンサルティング、システム開発、インフラ保守' },
   { label: 'メール', value: 'info@tiad.ai' },
 ]
@@ -21,15 +22,22 @@ const visions = [
   { title: '持続可能な成長', desc: '人とテクノロジーの融合' },
 ]
 
+export const metadata: Metadata = {
+  title: '会社概要',
+  description:
+    '名古屋市北区のTiAD合同会社の会社情報。2019年4月設立。代表挨拶、ビジョン、所在地をご紹介します。',
+  alternates: { canonical: '/about' },
+}
+
 export default function AboutPage() {
   return (
     <>
-      <PageHero en="Company" ja="会社概要" lead="ICTの力で、明日の働き方をつくる会社です。" />
+      <PageHero en="Company" ja="会社概要" lead="名古屋市北区から、ICTの力で明日の働き方をつくる会社です。" />
 
       {/* 代表挨拶 */}
       <section className="border-b border-line py-[88px] md:py-[120px]">
         <div className="wrap">
-          <SectionHead en="Message" ja="代表挨拶" />
+          <SectionHead index="01" en="Message" ja="代表挨拶" />
           <div className="grid gap-10 md:grid-cols-[200px_1fr] md:gap-12">
             <p className="eyebrow m-0 md:pt-2">Tomorrow is Another Day</p>
             <ScrollReveal className="grid max-w-[40em] gap-6 text-[17px] leading-[2.1]">
@@ -55,7 +63,10 @@ export default function AboutPage() {
       {/* 理念 */}
       <section className="border-b border-line bg-paper py-[88px] md:py-[120px]">
         <div className="wrap grid gap-10 md:grid-cols-[200px_1fr] md:gap-12">
-          <p className="eyebrow m-0 md:pt-3.5">Philosophy</p>
+          <p className="eyebrow m-0 md:pt-3.5">
+            <span className="mb-2 block tabular-nums">02</span>
+            Philosophy
+          </p>
           <div className="grid min-w-0 gap-12">
             <h2 className="m-0 flex flex-wrap items-center gap-x-[18px] gap-y-1 text-[clamp(30px,4.6vw,58px)] font-bold leading-[1.3]">
               <span>人財</span>
@@ -83,7 +94,7 @@ export default function AboutPage() {
       {/* 会社情報 */}
       <section className="border-b border-line py-[88px] md:py-[120px]">
         <div className="wrap">
-          <SectionHead en="Profile" ja="会社情報" />
+          <SectionHead index="03" en="Profile" ja="会社情報" />
           <dl className="m-0 border-t border-ink">
             {companyInfo.map((item) => (
               <div key={item.label} className="grid gap-1 border-b border-line py-5 md:grid-cols-[200px_1fr] md:gap-12">
@@ -99,6 +110,7 @@ export default function AboutPage() {
       <section className="py-[88px] md:py-[120px]">
         <div className="wrap">
           <SectionHead
+            index="04"
             en="Vision"
             ja="私たちのビジョン"
             desc="ICT技術を活用し、人とテクノロジーの融合による持続可能な成長を支援します。"

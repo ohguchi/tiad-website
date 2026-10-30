@@ -92,6 +92,7 @@ export default function Home() {
       <section className="border-b border-line py-[88px] md:py-[120px]">
         <div className="wrap">
           <SectionHead
+            index="01"
             en="Service"
             ja="私たちが取り組む事業"
             desc="ICTを活用してビジネスの生産性を高めるための取り組みです。お客様と協力し、新しい仕組みを一緒につくります。"
@@ -134,7 +135,7 @@ export default function Home() {
       {/* アプローチ */}
       <section id="approach" className="scroll-mt-[68px] border-b border-line py-[88px] md:py-[120px]">
         <div className="wrap">
-          <SectionHead en="Approach" ja="私たちのアプローチ" desc="ICT技術を活用した、働き方改革のためのソリューションを提供します。" />
+          <SectionHead index="02" en="Approach" ja="私たちのアプローチ" desc="ICT技術を活用した、働き方改革のためのソリューションを提供します。" />
           <div className="grid gap-8 md:grid-cols-[5fr_7fr] md:items-start md:gap-16">
             <Photo
               src="/images/approach-work.jpg"
@@ -167,7 +168,7 @@ export default function Home() {
       {/* お知らせ */}
       <section className="py-[88px] md:py-[120px]">
         <div className="wrap">
-          <SectionHead en="News" ja="お知らせ" />
+          <SectionHead index="03" en="News" ja="お知らせ" />
           <div className="border-t border-ink">
             {newsItems.slice(0, 3).map((item) => (
               <Link

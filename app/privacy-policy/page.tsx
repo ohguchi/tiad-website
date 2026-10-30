@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import PageHero from '@/components/PageHero'
+import type { Metadata } from 'next'
 
 const sections = [
     {
@@ -47,6 +48,13 @@ const sections = [
         content: '弊社は、個人情報の取扱いに関するご相談・苦情に迅速に対応します。ご連絡先は下記のお問い合わせ窓口となります。また、保険事故に関する照会については下記お問い合わせ窓口のほか、保険証券記載の保険会社の事故相談窓口にもお問い合わせいただくことができます。なお、ご照会者がご本人であることをご確認させていただいたうえで、ご対応させていただきますので、あらかじめご了承願います。'
     },
 ]
+
+export const metadata: Metadata = {
+  title: 'プライバシーポリシー',
+  description:
+    'TiAD合同会社の個人情報の取り扱いについて。',
+  alternates: { canonical: '/privacy-policy' },
+}
 
 export default function PrivacyPolicyPage() {
   return (

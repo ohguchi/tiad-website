@@ -1,5 +1,13 @@
 import ContactForm from '@/components/ContactForm'
 import PageHero from '@/components/PageHero'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'お問い合わせ',
+  description:
+    'ICT活用・システム開発・インフラ保守のご相談窓口です。名古屋市北区のTiAD合同会社へお気軽にお問い合わせください。',
+  alternates: { canonical: '/contact' },
+}
 
 export default function ContactPage() {
   return (
