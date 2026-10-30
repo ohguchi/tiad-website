@@ -11,7 +11,7 @@ const companyInfo = [
   { label: '英文名', value: 'TiAD.LLC' },
   { label: '代表者', value: '代表社員 大口 貴正' },
   { label: '設立', value: '2019年4月' },
-  { label: '所在地', value: '愛知県名古屋市北区八龍町1丁目77番地' },
+  { label: '所在地', value: '〒462-0805 愛知県名古屋市北区八龍町1丁目77番地' },
   { label: '事業内容', value: 'ICTコンサルティング、システム開発、インフラ保守' },
   { label: 'メール', value: 'info@tiad.ai' },
 ]

@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
 }
 
-// 会社の構造化データ（検索エンジン向け。郵便番号・電話番号は未提供のため入れない）
+// 会社の構造化データ（検索エンジン向け。電話番号は非公開のため入れない）
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -67,6 +67,7 @@ const organizationJsonLd = {
       address: {
         '@type': 'PostalAddress',
         addressCountry: 'JP',
+        postalCode: '462-0805',
         addressRegion: '愛知県',
         addressLocality: '名古屋市北区',
         streetAddress: '八龍町1丁目77番地',

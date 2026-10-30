@@ -59,7 +59,7 @@ export default function Footer() {
 
         <div className="flex flex-wrap justify-between gap-x-6 gap-y-2 border-t border-line pt-5 md:col-span-3">
           <span className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <span className="eyebrow">愛知県名古屋市北区八龍町1丁目77番地 ／ info@tiad.ai</span>
+            <span className="eyebrow">〒462-0805 愛知県名古屋市北区八龍町1丁目77番地 ／ info@tiad.ai</span>
             <LocalClock />
           </span>
           <span className="eyebrow">
