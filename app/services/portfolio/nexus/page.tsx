@@ -93,7 +93,7 @@ const flow = [
 ]
 
 export const metadata: Metadata = {
-  title: 'NEXUS｜現場から経理まで、会社の業務をひとつにつなぐ基幹システム',
+  title: 'NEXUS｜現場から経理までつなぐ基幹システム',
   description:
     'TiAD合同会社の自社サービス、基幹業務システム「NEXUS」。工程管理・従業員管理・勤怠管理・日報作成/経費精算・経理/会計をひとつのデータベースでつなぎ、現場の入力を原価・給与・仕訳まで届けます。',
   alternates: { canonical: '/services/portfolio/nexus' },

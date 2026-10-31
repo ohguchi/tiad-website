@@ -60,7 +60,7 @@ const flow = [
 ]
 
 export const metadata: Metadata = {
-  title: 'LINK｜営業・バックヤード・エンドユーザーをつなぐ業務Webアプリ',
+  title: 'LINK｜営業・バックヤード・顧客をつなぐ業務アプリ',
   description:
     'TiAD合同会社の自社サービス、業務Webアプリ「LINK」。営業の案件・顧客管理、エンドユーザーのイベント予約・アンケート・Web問い合わせ・コールバック予約、バックヤードの履歴・タスク管理をひとつにつなぎます。',
   alternates: { canonical: '/services/portfolio/link' },
