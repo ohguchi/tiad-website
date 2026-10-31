@@ -91,7 +91,7 @@ const flow = [
 ]
 
 export const metadata: Metadata = {
-  title: 'IRIS｜店舗のInstagram投稿を、AIの目で評価・共有するサービス',
+  title: 'IRIS｜AIによる店舗Instagram投稿の評価',
   description:
     'TiAD合同会社の自社サービス「IRIS」。複数店舗を展開する本部向けに、各店舗のInstagram投稿の写真と本文をAIが規定に照らして加点・減点で評価。良い投稿の横展開と、ブランドの発信品質の共通化を支えます。',
   alternates: { canonical: '/services/portfolio/iris' },
