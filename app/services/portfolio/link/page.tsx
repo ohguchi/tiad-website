@@ -5,6 +5,8 @@ import ScrollReveal from '@/components/ScrollReveal'
 import LinkDiagram from '@/components/LinkDiagram'
 import LinkScreens from '@/components/LinkScreens'
 import CtaBand from '@/components/CtaBand'
+import JsonLd from '@/components/JsonLd'
+import { getProductBySlug, productJsonLd } from '@/lib/productsData'
 import type { Metadata } from 'next'
 
 // 実績の概要
@@ -66,9 +68,13 @@ export const metadata: Metadata = {
   alternates: { canonical: '/services/portfolio/link' },
 }
 
+// lib/productsData.ts に登録している自社サービスの情報（構造化データ用）
+const product = getProductBySlug('link')
+
 export default function LinkCasePage() {
   return (
     <>
+      {product && <JsonLd data={productJsonLd(product)} />}
       <PageHero
         en="LINK"
         ja="営業・バックヤード・エンドユーザーをつなぐ業務Webアプリ"
