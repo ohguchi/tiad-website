@@ -4,6 +4,7 @@ import SectionHead from '@/components/SectionHead'
 import ScrollReveal from '@/components/ScrollReveal'
 import Photo from '@/components/Photo'
 import CtaBand from '@/components/CtaBand'
+import ProductList from '@/components/ProductList'
 import type { Metadata } from 'next'
 
 const services = [
@@ -103,10 +104,18 @@ export default function ServicesPage() {
         </section>
       ))}
 
+      {/* 自社サービス */}
+      <section className="border-b border-line py-[88px] md:py-[120px]">
+        <div className="wrap">
+          <SectionHead index="04" en="Products" ja="自社サービス" desc="アプリ開発事業から生まれた、自社で企画・開発しているサービスです。" />
+          <ProductList />
+        </div>
+      </section>
+
       {/* 選ばれる理由 */}
       <section className="border-b border-line bg-paper py-[88px] md:py-[120px]">
         <div className="wrap">
-          <SectionHead index="04" en="Why TiAD" ja="なぜTiADを選ぶのか" />
+          <SectionHead index="05" en="Why TiAD" ja="なぜTiADを選ぶのか" />
           <div className="grid border-t border-ink md:grid-cols-3">
             {reasons.map((r, i) => (
               <ScrollReveal

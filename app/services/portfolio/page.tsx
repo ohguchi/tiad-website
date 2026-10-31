@@ -3,31 +3,8 @@ import PageHero from '@/components/PageHero'
 import SectionHead from '@/components/SectionHead'
 import CtaBand from '@/components/CtaBand'
 import type { Metadata } from 'next'
+import { productHref, products } from '@/lib/productsData'
 
-// 自社サービス（提供開始の古い順。年表と同じ並び）
-const products = [
-  {
-    name: 'NEXUS',
-    release: '2025.10',
-    tagline: '現場から経理まで、会社の業務をひとつにつなぐ基幹システム',
-    lead: '工程管理・従業員管理・勤怠管理・日報作成/経費精算・経理/会計を、ひとつのデータベースで結びます。現場の入力が、原価・給与・仕訳までそのまま届きます。',
-    href: '/services/portfolio/nexus',
-  },
-  {
-    name: 'LINK',
-    release: '2026.02',
-    tagline: '営業・バックヤード・エンドユーザーをつなぐ業務Webアプリ',
-    lead: '営業が登録した案件を軸に、顧客管理、現地イベントの予約・アンケート、Web問い合わせ・コールバック予約、バックヤードでの履歴・タスク管理までをひとつにつなぎます。',
-    href: '/services/portfolio/link',
-  },
-  {
-    name: 'IRIS',
-    release: '2026.11',
-    tagline: '店舗のInstagram投稿を、AIの目で評価・共有するサービス',
-    lead: '各店舗が投稿した写真と本文を、本部の規定に照らしてAIが加点・減点で評価します。良い投稿を他店舗へ横展開し、店舗PRの品質とブランドの見せ方をそろえます。',
-    href: '/services/portfolio/iris',
-  },
-]
 
 // 実績の一覧（新しい年が上。年は該当するお知らせの年。継続案件は最上段）
 const portfolios = [
@@ -104,7 +81,7 @@ export default function PortfolioPage() {
                   <p className="m-0 text-lg font-bold tracking-[0.06em] md:text-xl">{p.tagline}</p>
                   <p className="m-0 mt-3 text-mute">{p.lead}</p>
                 </div>
-                <Link href={p.href} className="btn btn-ghost btn-sm justify-self-start md:mt-1">
+                <Link href={productHref(p)} className="btn btn-ghost btn-sm justify-self-start md:mt-1">
                   詳細を見る <span className="arr">→</span>
                 </Link>
               </li>

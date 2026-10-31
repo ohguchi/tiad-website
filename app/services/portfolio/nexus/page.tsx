@@ -5,6 +5,8 @@ import ScrollReveal from '@/components/ScrollReveal'
 import NexusDiagram from '@/components/NexusDiagram'
 import NexusScreens from '@/components/NexusScreens'
 import CtaBand from '@/components/CtaBand'
+import JsonLd from '@/components/JsonLd'
+import { getProductBySlug, productJsonLd } from '@/lib/productsData'
 import type { Metadata } from 'next'
 
 // 実績の概要
@@ -99,9 +101,13 @@ export const metadata: Metadata = {
   alternates: { canonical: '/services/portfolio/nexus' },
 }
 
+// lib/productsData.ts に登録している自社サービスの情報（構造化データ用）
+const product = getProductBySlug('nexus')
+
 export default function NexusCasePage() {
   return (
     <>
+      {product && <JsonLd data={productJsonLd(product)} />}
       <PageHero
         en="NEXUS"
         ja="現場から経理まで、会社の業務をひとつにつなぐ基幹システム"
